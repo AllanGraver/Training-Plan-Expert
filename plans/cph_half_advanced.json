@@ -1,6 +1,9 @@
 {
+  "id": "cph-half-advanceret-12uger",
   "name": "CPH Half – Advanceret (12 uger - 4x træning)",
+  "race_distance_km": 21.0975,
   "duration_weeks": 12,
+  
   "sessions": [
     { "week": 1, "day": 1, "title": "Rolig løb", "distance_km": 5, "note": "5 km" },
     { "week": 1, "day": 2, "title": "Tempo løb", "distance_km": 7, "note": "7 km incl. 2 km + 2 km in HM pace" },
@@ -60,6 +63,6 @@
     { "week": 12, "day": 1, "title": "Rolig løb", "distance_km": 5, "note": "5 km" },
     { "week": 12, "day": 2, "title": "Tempo løb", "distance_km": 8, "note": "8 km incl. 2 km + 1 km in HM pace" },
     { "week": 12, "day": 4, "title": "Rolig løb", "distance_km": 3, "note": "3 km" },
-    { "week": 12, "day": 7, "title": "Rolig løb", "race_distance_km": 21.1, "note": "21,1 km" }
+    { "week": 12, "day": 7, "title": "Rolig løb", "distance_km": 21.0975, "note": "21,0975 km" }
   ]
 }
