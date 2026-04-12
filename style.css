@@ -403,3 +403,33 @@ button:hover {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+/* Scrollbare distanceknapper i felt 2 */
+.vdot-distance-scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 6px 0;
+  scrollbar-width: none;
+}
+
+.vdot-distance-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.vdot-dist-btn {
+  white-space: nowrap;
+  padding: 10px 14px;
+  background: var(--strava-orange);
+  color: #fff;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: 0.2s;
+}
+
+.vdot-dist-btn.selected {
+  border: 3px solid black;
+}
