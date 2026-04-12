@@ -363,3 +363,43 @@ button:hover {
   box-shadow: 0 0 4px rgba(252, 76, 2, 0.4);
   outline: none;
 }
+/* =====================================================
+   VDOT RESULTATKORT – STRAVA STIL
+===================================================== */
+
+.vdot-card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 22px;
+  margin-top: 20px;
+  box-shadow: 0 10px 32px rgba(0,0,0,0.08);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.vdot-card h3 {
+  margin-top: 0;
+  color: var(--strava-orange);
+  font-size: 1.4rem;
+}
+
+.vdot-value {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--strava-dark);
+}
+
+.vdot-zones div {
+  background: #f9fafb;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
