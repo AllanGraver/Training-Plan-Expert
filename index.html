@@ -17,48 +17,50 @@
   <h1>Træningsplan Generator</h1>
 
   <!-- ============================= -->
-  <!-- FELT 1: Dato + løbsdistance   -->
-  <!-- ============================= -->
-  <section id="felt1">
-    <h2>1. Vælg konkurrencedato og distance</h2>
+<!-- FELT 1: Dato + løbsdistance   -->
+<!-- ============================= -->
+<section id="felt1">
+  <h2>1. Vælg konkurrencedato og distance</h2>
 
-    <label for="raceDate">Konkurrencedato</label><br>
-    <input type="date" id="raceDate"><br><br>
+  <label for="raceDate">Konkurrencedato</label><br>
+  <input type="date" id="raceDate"><br><br>
 
-    <div id="distanceButtons" class="distance-selector">
-      <button data-distance="5">5 km</button>
-      <button data-distance="10">10 km</button>
-      <button data-distance="21.1">21,1 km</button>
-      <button data-distance="42.2">42,2 km</button>
+  <div id="distanceButtons" class="distance-selector">
+    <button class="distance-btn" data-distance="5">5 km</button>
+    <button class="distance-btn" data-distance="10">10 km</button>
+    <button class="distance-btn" data-distance="21.1">21,1 km</button>
+    <button class="distance-btn" data-distance="42.2">42,2 km</button>
+  </div>
+</section>
+
+<br>
+
+<!-- ============================= -->
+<!-- FELT 2: Beregn træningspace   -->
+<!-- ============================= -->
+<section id="felt2">
+  <h2>2. Beregn træningspace</h2>
+
+  <div class="vdot-row">
+    <div class="vdot-field">
+      <label for="raceDistanceForVDOT">Distance</label>
+      <select id="raceDistanceForVDOT">
+        <option value="5">5 km</option>
+        <option value="10">10 km</option>
+        <option value="21.1">21,1 km</option>
+        <option value="42.2">42,2 km</option>
+      </select>
     </div>
-  </section>
 
-  <br>
+    <div class="vdot-field">
+      <label for="raceTime">Løbstid</label>
+      <input type="text" id="raceTime" placeholder="mm:ss eller hh:mm:ss">
+    </div>
+  </div>
 
-  <!-- ============================= -->
-  <!-- FELT 2: Beregn træningspace   -->
-  <!-- ============================= -->
-  <section id="felt2">
-    <h2>2. Beregn træningspace</h2>
-
-    <label for="raceDistanceForVDOT">Distance</label><br>
-    <select id="raceDistanceForVDOT">
-      <option value="5">5 km</option>
-      <option value="10">10 km</option>
-      <option value="21.1">21,1 km</option>
-      <option value="42.2">42,2 km</option>
-    </select>
-    <br><br>
-
-    <label for="raceTime">Løbstid (mm:ss eller hh:mm:ss)</label><br>
-    <input type="text" id="raceTime" placeholder="fx 45:30 eller 1:45:30"><br><br>
-
-    <button id="calculateVDOT">Beregn VDOT</button>
-
-    <div id="vdotResult"></div>
-  </section>
-
-  <br>
+  <button id="calculateVDOT">Beregn VDOT</button>
+  <div id="vdotResult"></div>
+</section>
 
   <!-- ============================= -->
   <!-- FELT 3: Vælg træningsplan     -->
