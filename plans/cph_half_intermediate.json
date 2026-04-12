@@ -1,0 +1,53 @@
+{
+  "name": "CPH Half – Mellemniveau (12 uger - 3x træning)",
+  "duration_weeks": 12,
+  "sessions": [
+    { "week": 1, "day": 1, "title": "Rolig løb", "distance_km": 6, "note": "6 km incl. 2x 1 km in HM pace" },
+    { "week": 1, "day": 3, "title": "Rolig løb", "distance_km": 5, "note": "5 km" },
+    { "week": 1, "day": 6, "title": "Rolig løb", "distance_km": 9, "note": "9 km" },
+
+    { "week": 2, "day": 1, "title": "Rolig løb", "distance_km": 6, "note": "6 km incl. 2x 1 km in HM pace" },
+    { "week": 2, "day": 3, "title": "Rolig løb", "distance_km": 5, "note": "5 km" },
+    { "week": 2, "day": 6, "title": "Rolig løb", "distance_km": 10, "note": "10 km" },
+
+    { "week": 3, "day": 1, "title": "Rolig løb", "distance_km": 6, "note": "6 km incl. 2x 1 km in HM pace" },
+    { "week": 3, "day": 3, "title": "Rolig løb", "distance_km": 5, "note": "5 km" },
+    { "week": 3, "day": 6, "title": "Rolig løb", "distance_km": 10, "note": "10 km" },
+
+    { "week": 4, "day": 1, "title": "Rolig løb", "distance_km": 7, "note": "7 km incl. 2 km + 2 km in HM pace" },
+    { "week": 4, "day": 3, "title": "Rolig løb", "distance_km": 5, "note": "5 km" },
+    { "week": 4, "day": 6, "title": "Rolig løb", "distance_km": 10, "note": "10 km" },
+
+    { "week": 5, "day": 1, "title": "Rolig løb", "distance_km": 7, "note": "7 km incl. 2 km + 2 km in HM pace" },
+    { "week": 5, "day": 3, "title": "Rolig løb", "distance_km": 5, "note": "5 km" },
+    { "week": 5, "day": 6, "title": "Rolig løb", "distance_km": 12, "note": "12 km" },
+
+    { "week": 6, "day": 1, "title": "Rolig løb", "distance_km": 8, "note": "8 km incl. 3 km + 3 km in HM pace" },
+    { "week": 6, "day": 3, "title": "Rolig løb", "distance_km": 5, "note": "5 km" },
+    { "week": 6, "day": 6, "title": "Rolig løb", "distance_km": 12, "note": "12 km" },
+
+    { "week": 7, "day": 1, "title": "Rolig løb", "distance_km": 8, "note": "8 km incl. 3 km + 3 km in HM pace" },
+    { "week": 7, "day": 3, "title": "Rolig løb", "distance_km": 5, "note": "5 km" },
+    { "week": 7, "day": 6, "title": "Rolig løb", "distance_km": 14, "note": "14 km" },
+
+    { "week": 8, "day": 1, "title": "Rolig løb", "distance_km": 8, "note": "8 km incl. 4 km + 2 km in HM pace" },
+    { "week": 8, "day": 3, "title": "Rolig løb", "distance_km": 5, "note": "5 km" },
+    { "week": 8, "day": 6, "title": "Rolig løb", "distance_km": 14, "note": "14 km" },
+
+    { "week": 9, "day": 1, "title": "Rolig løb", "distance_km": 8, "note": "8 km incl. 4 km + 2 km in HM pace" },
+    { "week": 9, "day": 3, "title": "Rolig løb", "distance_km": 5, "note": "5 km" },
+    { "week": 9, "day": 6, "title": "Rolig løb", "distance_km": 16, "note": "16 km" },
+
+    { "week": 10, "day": 1, "title": "Rolig løb", "distance_km": 9, "note": "9 km incl. 5 km + 2 km in HM pace" },
+    { "week": 10, "day": 3, "title": "Rolig løb", "distance_km": 5, "note": "5 km" },
+    { "week": 10, "day": 6, "title": "Rolig løb", "distance_km": 16, "note": "16 km" },
+
+    { "week": 11, "day": 1, "title": "Rolig løb", "distance_km": 9, "note": "9 km incl. 5 km + 2 km in HM pace" },
+    { "week": 11, "day": 3, "title": "Rolig løb", "distance_km": 5, "note": "5 km" },
+    { "week": 11, "day": 6, "title": "Rolig løb", "distance_km": 16, "note": "16 km" },
+
+    { "week": 12, "day": 1, "title": "Rolig løb", "distance_km": 6, "note": "6 km incl. 2 x 1 km in HM pace" },
+    { "week": 12, "day": 3, "title": "Rolig løb", "distance_km": 5, "note": "5 km" },
+    { "week": 12, "day": 6, "title": "Rolig løb", "race_distance_km": 21.1, "note": "CPH Half 21,1 km" }
+  ]
+}
