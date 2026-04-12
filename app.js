@@ -20,7 +20,22 @@ distanceButtons.forEach(btn => {
     SELECTED_RACE_DISTANCE = parseFloat(btn.dataset.distance);
   });
 });
+/* ============================================================
+   DISTANCEKNAPPER – FELT 2 (scrollbar)
+============================================================ */
 
+let VDOT_DISTANCE = null;
+
+const vdotButtons = document.querySelectorAll(".vdot-dist-btn");
+
+vdotButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    vdotButtons.forEach(b => b.classList.remove("selected"));
+    btn.classList.add("selected");
+
+    VDOT_DISTANCE = parseFloat(btn.dataset.dist);
+  });
+});
 
 /* ============================================================
    PACE / TID HELPERS
