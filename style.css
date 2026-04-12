@@ -286,9 +286,60 @@ button:hover {
   .header-card p {
     display: none;
   }
-   /* force rebuild 2 */
 
   .card {
     box-shadow: none;
   }
+}
+
+/* =====================================================
+   NYT: DISTANCEKNAPPER + VDOT-FELTER
+===================================================== */
+
+/* 4 knapper i én linje */
+.distance-selector {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.distance-btn {
+  flex: 1;
+  padding: 14px;
+  border: 2px solid #ccc;
+  background: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  transition: 0.2s;
+}
+
+/* Valgt knap → fed SORT kant */
+.distance-btn.selected {
+  border: 4px solid black;
+  background: #fff;
+  font-weight: 700;
+}
+
+/* VDOT-felter side om side */
+.vdot-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.vdot-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.vdot-field input,
+.vdot-field select {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #D1D5DB;
 }
