@@ -4,6 +4,22 @@
 let planData = null;
 const plansCache = {};
 let USER_VDOT = null; // ← gemmer beregnet VDOT
+let SELECTED_RACE_DISTANCE = null; // ← fra distance-knapperne
+
+
+/* ============================================================
+   DISTANCE-KNAPPER (felt 1)
+============================================================ */
+const distanceButtons = document.querySelectorAll(".distance-btn");
+
+distanceButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    distanceButtons.forEach(b => b.classList.remove("selected"));
+    btn.classList.add("selected");
+
+    SELECTED_RACE_DISTANCE = parseFloat(btn.dataset.distance);
+  });
+});
 
 
 /* ============================================================
@@ -36,9 +52,17 @@ function calcTime(distanceKm, paceStr) {
 ============================================================ */
 function calculateRawVDOT(timeStr, distKm) {
   const parts = timeStr.split(":").map(Number);
-  if (parts.length !== 3) return null;
 
-  const seconds = parts[0] * 3600 + parts[1] * 60 + parts[2];
+  // Tillad både mm:ss og hh:mm:ss
+  let seconds = 0;
+  if (parts.length === 2) {
+    seconds = parts[0] * 60 + parts[1];
+  } else if (parts.length === 3) {
+    seconds = parts[0] * 3600 + parts[1] * 60 + parts[2];
+  } else {
+    return null;
+  }
+
   if (!seconds || !distKm) return null;
 
   const velocity = distKm / (seconds / 60); // km/min
@@ -108,20 +132,20 @@ function getInterpolatedZones(rawVDOT) {
 
 
 /* ============================================================
-   BEREGN VDOT FRA LØBSTID (brugeren klikker knap)
+   BEREGN VDOT FRA LØBSTID (nyt felt 2)
 ============================================================ */
 function calculateVDOT() {
   const timeStr = document.getElementById("raceTime").value;
-  const dist = parseFloat(document.getElementById("raceDistance").value);
+  const dist = parseFloat(document.getElementById("raceDistanceForVDOT").value);
 
   if (!timeStr || !dist) {
-    alert("Indtast både løbstid og distance");
+    alert("Indtast både løbstid og vælg distance");
     return;
   }
 
   const raw = calculateRawVDOT(timeStr, dist);
   if (!raw) {
-    alert("Kunne ikke beregne VDOT – tjek formatet (hh:mm:ss)");
+    alert("Kunne ikke beregne VDOT – tjek formatet (mm:ss eller hh:mm:ss)");
     return;
   }
 
@@ -158,7 +182,6 @@ function calcTimeFromZone(session) {
   if (!session.distance_km || !session.pace) return null;
   return calcTime(session.distance_km, session.pace);
 }
-
 
 /* ============================================================
    INIT
