@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- VIGTIGT: Gør mobilvisning mulig -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Træningsplan Generator</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- force rebuild -->
+
+  <h1>Træningsplan Generator</h1>
+
+  <div class="distance-select">
+  <label for="presetDistance">Vælg distance</label><br>
+  <select id="presetDistance">
+    <option value="">Vælg…</option>
+    <option value="5">5 km</option>
+    <option value="10">10 km</option>
+    <option value="21.1">21,1 km</option>
+    <option value="42.2">42,2 km</option>
+  </select>
+</div>
+<br>
+
+  <label for="planSelect">Vælg træningsplan</label><br>
+  <select id="planSelect"></select><br><br>
+
+  <label for="raceDate">Konkurrencedato</label><br>
+  <input type="date" id="raceDate"><br><br>
+
+  <!-- Personlige data -->
+  <h2>Personlige data</h2>
+
+  <label for="raceTime">Løbstid (hh:mm:ss)</label><br>
+  <input type="text" id="raceTime" placeholder="fx 00:45:30"><br><br>
+
+  <label for="raceDistance">Distance (km)</label><br>
+  <input type="number" id="raceDistance" step="0.1" placeholder="fx 10"><br><br>
+
+  <button onclick="calculateVDOT()">Beregn træningszoner ud fra løbstid</button>
+
+  <br><br>
+
+  <button onclick="generatePlan()">Generér plan</button>
+  <button onclick="downloadCSV()">Download CSV</button>
+  <button onclick="downloadICS()">Download iCal</button>
+  <button onclick="window.print()">Print</button>
+
+  <hr>
+
+  <h2>Træningsoversigt</h2>
+  <div id="weekGrid"></div>
+
+  <!-- JS -->
+  <script src="vdot-zones.js"></script>
+  <script src="app.js"></script>
+  <script src="card-layout.js"></script>
+  <script src="accordion-weeks.js"></script>
+
+</body>
+</html>
