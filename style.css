@@ -358,3 +358,8 @@ button:hover {
   font-weight: 700;
   color: var(--strava-dark);
 }
+.time-input-row input:focus {
+  border-color: var(--strava-orange);
+  box-shadow: 0 0 4px rgba(252, 76, 2, 0.4);
+  outline: none;
+}
