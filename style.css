@@ -337,10 +337,24 @@ button:hover {
   flex-direction: column;
 }
 
-.vdot-field input,
-.vdot-field select {
+/* Tidsfelter i tre kolonner */
+.time-input-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.time-input-row input {
+  width: 60px;
   padding: 12px;
   font-size: 1rem;
   border-radius: 12px;
   border: 1px solid #D1D5DB;
+  text-align: center;
+}
+
+.time-sep {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--strava-dark);
 }
