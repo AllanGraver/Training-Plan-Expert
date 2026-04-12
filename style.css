@@ -505,3 +505,23 @@ button:hover {
   gap: 12px;
   margin-bottom: 12px;
 }
+/* Mere luft rundt om hele appen */
+.app-container {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Ekstra luft på mobil */
+@media (max-width: 768px) {
+  .app-container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  /* Gør knapperne mindre kant-til-kant */
+  .distance-selector,
+  .vdot-distance-scroll {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}
