@@ -525,3 +525,98 @@ button:hover {
     padding-right: 4px;
   }
 }
+/* =====================================================
+   STRAVA CARD LAYOUT – FELT 1 + FELT 2
+===================================================== */
+
+.card-block {
+  background: var(--card-bg);
+  padding: 20px 22px;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+  margin-bottom: 26px;
+}
+
+/* Mindre overskrifter */
+.card-block h2 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 1.25rem;
+}
+
+/* Inputs i kort */
+.card-block input,
+.card-block select {
+  margin-bottom: 14px;
+}
+
+/* Kompakt afstand */
+.vdot-row {
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+/* Scrollbare knapper – chip style */
+.vdot-distance-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 6px 0 10px;
+  scrollbar-width: none;
+}
+
+.vdot-distance-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.vdot-dist-btn {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  background: var(--strava-orange);
+  color: white;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.vdot-dist-btn.selected {
+  border: 3px solid black;
+}
+
+/* Distanceknapper i felt 1 – kompakt */
+.distance-btn {
+  padding: 10px 0;
+  font-size: 0.9rem;
+  border-radius: 10px;
+}
+
+/* Tidsfelter – pill design */
+.time-input-row input {
+  width: 55px;
+  padding: 10px;
+  border-radius: 14px;
+  font-size: 1rem;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.time-sep {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--strava-dark);
+}
+
+/* Mere luft rundt om hele appen */
+.app-container {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
