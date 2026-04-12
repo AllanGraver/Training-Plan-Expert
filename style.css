@@ -433,3 +433,75 @@ button:hover {
 .vdot-dist-btn.selected {
   border: 3px solid black;
 }
+/* =====================================================
+   ELEGANTERE LAYOUT – FELT 1 + FELT 2
+===================================================== */
+
+/* Mindre overskrifter */
+#felt1 h2, #felt2 h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* Kompakt afstand */
+#felt1, #felt2 {
+  margin-bottom: 20px;
+}
+
+/* Distanceknapper (felt 1) – small elegant style */
+.distance-btn {
+  padding: 10px 0;
+  font-size: 0.9rem;
+  border-radius: 10px;
+}
+
+/* Scrollbare knapper (felt 2) – chip style */
+.vdot-distance-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 0 10px;
+  scrollbar-width: none;
+}
+
+.vdot-distance-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.vdot-dist-btn {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  background: var(--strava-orange);
+  color: white;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.vdot-dist-btn.selected {
+  border: 3px solid black;
+}
+
+/* Tidsfelter – pill design */
+.time-input-row input {
+  width: 55px;
+  padding: 10px;
+  border-radius: 14px;
+  font-size: 1rem;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.time-sep {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--strava-dark);
+}
+
+/* Gør hele felt 2 mere kompakt */
+.vdot-row {
+  gap: 12px;
+  margin-bottom: 12px;
+}
