@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- VIGTIGT: Gør mobilvisning mulig -->
+  <!-- Mobilvenlig visning -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Træningsplan Generator</title>
@@ -14,45 +14,74 @@
 
 <body>
 
-  <!-- force rebuild -->
-
   <h1>Træningsplan Generator</h1>
 
-  <div class="distance-select">
-  <label for="presetDistance">Vælg distance</label><br>
-  <select id="presetDistance">
-    <option value="">Vælg…</option>
-    <option value="5">5 km</option>
-    <option value="10">10 km</option>
-    <option value="21.1">21,1 km</option>
-    <option value="42.2">42,2 km</option>
-  </select>
-</div>
-<br>
+  <!-- ============================= -->
+  <!-- FELT 1: Dato + løbsdistance   -->
+  <!-- ============================= -->
+  <section id="felt1">
+    <h2>1. Vælg konkurrencedato og distance</h2>
 
-  <label for="planSelect">Vælg træningsplan</label><br>
-  <select id="planSelect"></select><br><br>
+    <label for="raceDate">Konkurrencedato</label><br>
+    <input type="date" id="raceDate"><br><br>
 
-  <label for="raceDate">Konkurrencedato</label><br>
-  <input type="date" id="raceDate"><br><br>
+    <div id="distanceButtons" class="distance-selector">
+      <button data-distance="5">5 km</button>
+      <button data-distance="10">10 km</button>
+      <button data-distance="21.1">21,1 km</button>
+      <button data-distance="42.2">42,2 km</button>
+    </div>
+  </section>
 
-  <!-- Personlige data -->
-  <h2>Personlige data</h2>
+  <br>
 
-  <label for="raceTime">Løbstid (hh:mm:ss)</label><br>
-  <input type="text" id="raceTime" placeholder="fx 00:45:30"><br><br>
+  <!-- ============================= -->
+  <!-- FELT 2: Beregn træningspace   -->
+  <!-- ============================= -->
+  <section id="felt2">
+    <h2>2. Beregn træningspace</h2>
 
-  <label for="raceDistance">Distance (km)</label><br>
-  <input type="number" id="raceDistance" step="0.1" placeholder="fx 10"><br><br>
+    <label for="raceDistanceForVDOT">Distance</label><br>
+    <select id="raceDistanceForVDOT">
+      <option value="5">5 km</option>
+      <option value="10">10 km</option>
+      <option value="21.1">21,1 km</option>
+      <option value="42.2">42,2 km</option>
+    </select>
+    <br><br>
 
-  <button onclick="calculateVDOT()">Beregn træningszoner ud fra løbstid</button>
+    <label for="raceTime">Løbstid (mm:ss eller hh:mm:ss)</label><br>
+    <input type="text" id="raceTime" placeholder="fx 45:30 eller 1:45:30"><br><br>
 
-  <br><br>
+    <button id="calculateVDOT">Beregn VDOT</button>
 
-  <button onclick="generatePlan()">Generér plan</button>
-  <button onclick="downloadCSV()">Download CSV</button>
-  <button onclick="downloadICS()">Download iCal</button>
-  <button onclick="window.print()">Print</button>
+    <div id="vdotResult"></div>
+  </section>
+
+  <br>
+
+  <!-- ============================= -->
+  <!-- FELT 3: Vælg træningsplan     -->
+  <!-- ============================= -->
+  <section id="felt3">
+    <h2>3. Vælg træningsplan</h2>
+
+    <label for="planSelect">Tilgængelige træningsplaner</label><br>
+    <select id="planSelect"></select>
+  </section>
+
+  <br>
+
+  <!-- ============================= -->
+  <!-- FELT 4: Generér træningsplan  -->
+  <!-- ============================= -->
+  <section id="felt4">
+    <h2>4. Generér træningsplan</h2>
+    <button id="generatePlan">Generér træningsplan</button>
+    <button onclick="downloadCSV()">Download CSV</button>
+    <button onclick="downloadICS()">Download iCal</button>
+    <button onclick="window.print()">Print</button>
+  </section>
 
   <hr>
 
