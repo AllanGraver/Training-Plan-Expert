@@ -3,8 +3,9 @@
 ============================================================ */
 let planData = null;
 const plansCache = {};
-let USER_VDOT = null; // ← gemmer beregnet VDOT
-let SELECTED_RACE_DISTANCE = null; // ← fra distance-knapperne
+let USER_VDOT = null;
+let SELECTED_RACE_DISTANCE = null;
+let VDOT_DISTANCE = null;
 
 
 /* ============================================================
@@ -18,14 +19,14 @@ distanceButtons.forEach(btn => {
     btn.classList.add("selected");
 
     SELECTED_RACE_DISTANCE = parseFloat(btn.dataset.distance);
+    updatePlanDropdown();
   });
 });
+
+
 /* ============================================================
    DISTANCEKNAPPER – FELT 2 (scrollbar)
 ============================================================ */
-
-let VDOT_DISTANCE = null;
-
 const vdotButtons = document.querySelectorAll(".vdot-dist-btn");
 
 vdotButtons.forEach(btn => {
@@ -36,6 +37,52 @@ vdotButtons.forEach(btn => {
     VDOT_DISTANCE = parseFloat(btn.dataset.dist);
   });
 });
+
+
+/* ============================================================
+   LOAD INDEX.JSON + PLANER
+============================================================ */
+async function loadPlansIndex() {
+  const res = await fetch("plans/index.json");
+  const index = await res.json();
+
+  for (const file of index.plans) {
+    const planRes = await fetch("plans/" + file);
+    const planJson = await planRes.json();
+
+    plansCache[planJson.id] = planJson;
+  }
+
+  updatePlanDropdown();
+}
+
+
+/* ============================================================
+   FILTERING AF PLANER (felt 1 → felt 3)
+============================================================ */
+function updatePlanDropdown() {
+  const select = document.getElementById("planSelect");
+  select.innerHTML = "";
+
+  if (!SELECTED_RACE_DISTANCE) return;
+
+  const filtered = Object.values(plansCache).filter(plan =>
+    Math.abs(plan.race_distance_km - SELECTED_RACE_DISTANCE) < 0.01
+  );
+
+  filtered.forEach(plan => {
+    const opt = document.createElement("option");
+    opt.value = plan.id;
+    opt.textContent = plan.name;
+    select.appendChild(opt);
+  });
+
+  if (filtered.length === 1) {
+    select.value = filtered[0].id;
+    planData = filtered[0];
+  }
+}
+
 
 /* ============================================================
    PACE / TID HELPERS
@@ -63,12 +110,11 @@ function calcTime(distanceKm, paceStr) {
 
 
 /* ============================================================
-   RÅ VDOT-BEREGNING (løbstid + distance)
+   RÅ VDOT-BEREGNING
 ============================================================ */
 function calculateRawVDOT(timeStr, distKm) {
   const parts = timeStr.split(":").map(Number);
 
-  // Tillad både mm:ss og hh:mm:ss
   let seconds = 0;
   if (parts.length === 2) {
     seconds = parts[0] * 60 + parts[1];
@@ -80,7 +126,7 @@ function calculateRawVDOT(timeStr, distKm) {
 
   if (!seconds || !distKm) return null;
 
-  const velocity = distKm / (seconds / 60); // km/min
+  const velocity = distKm / (seconds / 60);
   const vo2 = -4.6 + 0.182258 * (velocity * 60) + 0.000104 * Math.pow(velocity * 60, 2);
 
   const vdot =
@@ -94,7 +140,7 @@ function calculateRawVDOT(timeStr, distKm) {
 
 
 /* ============================================================
-   INTERPOLATION MELLEM DINE VDOT-ZONER
+   INTERPOLATION MELLEM VDOT-ZONER
 ============================================================ */
 function paceToSeconds(paceStr) {
   const [m, s] = paceStr.split(":").map(Number);
@@ -147,14 +193,14 @@ function getInterpolatedZones(rawVDOT) {
 
 
 /* ============================================================
-   BEREGN VDOT FRA LØBSTID (nyt felt 2)
+   BEREGN VDOT FRA LØBSTID
 ============================================================ */
 function calculateVDOT() {
   const dist = VDOT_DISTANCE;
-if (!dist) {
-  alert("Vælg en distance");
-  return;
-}
+  if (!dist) {
+    alert("Vælg en distance");
+    return;
+  }
 
   const hh = parseInt(document.getElementById("timeHours").value || 0);
   const mm = parseInt(document.getElementById("timeMinutes").value || 0);
@@ -176,7 +222,6 @@ if (!dist) {
   USER_VDOT = raw;
   const zones = getInterpolatedZones(raw);
 
-  // Udfyld resultatkort
   document.getElementById("vdotValue").textContent = raw.toFixed(1);
   document.getElementById("zoneE").textContent = zones.E;
   document.getElementById("zoneM").textContent = zones.M;
@@ -184,70 +229,40 @@ if (!dist) {
   document.getElementById("zoneI").textContent = zones.I;
   document.getElementById("zoneR").textContent = zones.R;
 
-  // Vis kortet
   document.getElementById("vdotCard").style.display = "block";
 }
 
 
 /* ============================================================
-   BERIG TRÆNINGSPAS MED ZONER
+   GENERÉR PLAN
 ============================================================ */
-function enrichSessionWithVDOT(session, rawVDOT) {
-  if (!rawVDOT) return;
-  const zones = getInterpolatedZones(rawVDOT);
-  if (!zones) return;
-
-  if (session.zone && zones[session.zone]) {
-    session.pace = zones[session.zone];
+function generatePlan() {
+  if (!planData) {
+    alert("Vælg en træningsplan først");
+    return;
   }
+
+  if (!USER_VDOT) {
+    alert("Beregn dine træningszoner ud fra løbstid først.");
+    return;
+  }
+
+  const raceDateInput = document.getElementById("raceDate").value;
+  if (!raceDateInput) {
+    alert("Vælg en konkurrencedato");
+    return;
+  }
+
+  renderWeekTable(planData);
 }
 
-function calcTimeFromZone(session) {
-  if (!session.distance_km || !session.pace) return null;
-  return calcTime(session.distance_km, session.pace);
-}
 
 /* ============================================================
    INIT
 ============================================================ */
 document.addEventListener("DOMContentLoaded", () => {
-  const select = document.getElementById("planSelect");
-
-  fetch("plans/index.json")
-    .then(res => res.json())
-    .then(index => {
-      select.innerHTML = '<option value="">Vælg træningsplan…</option>';
-
-      index.plans.forEach(file => {
-        fetch("plans/" + file)
-          .then(res => res.json())
-          .then(plan => {
-            plansCache[file] = plan;
-
-            const option = document.createElement("option");
-            option.value = file;
-            option.textContent = plan.name || file;
-            select.appendChild(option);
-          });
-      });
-    });
-
-  select.addEventListener("change", () => {
-    planData = plansCache[select.value];
-  });
-
-  // Distance-vælger → udfyld raceDistance
-  const preset = document.getElementById("presetDistance");
-  const distInput = document.getElementById("raceDistance");
-  if (preset && distInput) {
-    preset.addEventListener("change", () => {
-      if (preset.value) {
-        distInput.value = preset.value;
-      }
-    });
-  }
+  loadPlansIndex();
 });
-
 
 /* ============================================================
    GENERÉR PLAN
