@@ -1,6 +1,9 @@
 {
+  "id": "cph-half-mellemniveau-12uger",
   "name": "CPH Half – Mellemniveau (12 uger - 3x træning)",
+  "race_distance_km": 21.0975,
   "duration_weeks": 12,
+  
   "sessions": [
     { "week": 1, "day": 1, "title": "Rolig løb", "distance_km": 6, "note": "6 km incl. 2x 1 km in HM pace" },
     { "week": 1, "day": 3, "title": "Rolig løb", "distance_km": 5, "note": "5 km" },
@@ -48,6 +51,6 @@
 
     { "week": 12, "day": 1, "title": "Rolig løb", "distance_km": 6, "note": "6 km incl. 2 x 1 km in HM pace" },
     { "week": 12, "day": 3, "title": "Rolig løb", "distance_km": 5, "note": "5 km" },
-    { "week": 12, "day": 6, "title": "Rolig løb", "race_distance_km": 21.1, "note": "CPH Half 21,1 km" }
+    { "week": 12, "day": 6, "title": "Rolig løb", "distance_km": 21.0975, "note": "CPH Half 21,0975 km" }
   ]
 }
