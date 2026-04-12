@@ -418,3 +418,14 @@ function downloadCSV() {
 function downloadICS() {
   alert("iCal-download er ikke implementeret endnu.");
 }
+/* ============================================================
+   VALIDERING – FORHINDR BOGSTAVER I TIDSFELTER
+============================================================ */
+
+["timeHours", "timeMinutes", "timeSeconds"].forEach(id => {
+  const el = document.getElementById(id);
+
+  el.addEventListener("input", () => {
+    el.value = el.value.replace(/\D/g, ""); // fjern alt der ikke er tal
+  });
+});
