@@ -434,3 +434,60 @@ function downloadICS() {
     el.value = el.value.replace(/\D/g, ""); // fjern alt der ikke er tal
   });
 });
+/* ============================================================
+   AUTO-FOKUS & AUTOFORMAT FOR TIDSFELTER
+============================================================ */
+
+const hhInput = document.getElementById("timeHours");
+const mmInput = document.getElementById("timeMinutes");
+const ssInput = document.getElementById("timeSeconds");
+
+// Auto-fokus når der er skrevet 2 cifre
+function autoFocusNext(current, next, max = null) {
+  current.addEventListener("input", () => {
+    let val = current.value;
+
+    // Begrænsning (fx mm og ss max 59)
+    if (max !== null && val !== "") {
+      val = Math.min(parseInt(val), max);
+      current.value = val;
+    }
+
+    // Hop videre når der er 2 cifre
+    if (val.length >= 2) {
+      next.focus();
+      next.select();
+    }
+  });
+}
+
+// Auto-format når feltet forlades (fx 4 → 04)
+function autoPad(input) {
+  input.addEventListener("blur", () => {
+    if (input.value !== "") {
+      input.value = String(input.value).padStart(2, "0");
+    }
+  });
+}
+
+// Opsætning
+autoFocusNext(hhInput, mmInput);
+autoFocusNext(mmInput, ssInput, 59);
+autoFocusNext(ssInput, ssInput, 59); // sidste felt
+
+autoPad(hhInput);
+autoPad(mmInput);
+autoPad(ssInput);
+
+
+/* ============================================================
+   VALIDERING – FORHINDR BOGSTAVER I TIDSFELTER
+============================================================ */
+
+["timeHours", "timeMinutes", "timeSeconds"].forEach(id => {
+  const el = document.getElementById(id);
+
+  el.addEventListener("input", () => {
+    el.value = el.value.replace(/\D/g, ""); // fjern alt der ikke er tal
+  });
+});
