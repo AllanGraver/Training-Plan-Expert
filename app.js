@@ -135,33 +135,38 @@ function getInterpolatedZones(rawVDOT) {
    BEREGN VDOT FRA LØBSTID (nyt felt 2)
 ============================================================ */
 function calculateVDOT() {
-  const timeStr = document.getElementById("raceTime").value;
   const dist = parseFloat(document.getElementById("raceDistanceForVDOT").value);
 
-  if (!timeStr || !dist) {
-    alert("Indtast både løbstid og vælg distance");
+  const hh = parseInt(document.getElementById("timeHours").value || 0);
+  const mm = parseInt(document.getElementById("timeMinutes").value || 0);
+  const ss = parseInt(document.getElementById("timeSeconds").value || 0);
+
+  if (isNaN(mm) || isNaN(ss)) {
+    alert("Indtast mindst minutter og sekunder");
     return;
   }
 
+  const timeStr = `${String(hh).padStart(2, "0")}:${String(mm).padStart(2, "0")}:${String(ss).padStart(2, "0")}`;
+
   const raw = calculateRawVDOT(timeStr, dist);
   if (!raw) {
-    alert("Kunne ikke beregne VDOT – tjek formatet (mm:ss eller hh:mm:ss)");
+    alert("Kunne ikke beregne VDOT – tjek dine tal");
     return;
   }
 
   USER_VDOT = raw;
-
   const zones = getInterpolatedZones(raw);
 
-  alert(
-    "Din beregnede VDOT: " + raw.toFixed(1) +
-    "\n\nTræningszoner:" +
-    "\nE: " + zones.E +
-    "\nM: " + zones.M +
-    "\nT: " + zones.T +
-    "\nI: " + zones.I +
-    "\nR: " + zones.R
-  );
+  // Udfyld resultatkort
+  document.getElementById("vdotValue").textContent = raw.toFixed(1);
+  document.getElementById("zoneE").textContent = zones.E;
+  document.getElementById("zoneM").textContent = zones.M;
+  document.getElementById("zoneT").textContent = zones.T;
+  document.getElementById("zoneI").textContent = zones.I;
+  document.getElementById("zoneR").textContent = zones.R;
+
+  // Vis kortet
+  document.getElementById("vdotCard").style.display = "block";
 }
 
 
