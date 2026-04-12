@@ -1,0 +1,294 @@
+/* =====================================================
+   STRAVA-TEMA – VARIABLER
+===================================================== */
+:root {
+  --strava-orange: #FC4C02;
+  --strava-dark: #1F2933;
+  --background: #F7F7F7;
+  --card-bg: #FFFFFF;
+  --muted: #6B7280;
+}
+
+/* =====================================================
+   BASE
+===================================================== */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--background);
+  color: var(--strava-dark);
+}
+
+.app-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+.header-card {
+  background: linear-gradient(135deg, var(--strava-orange), #ff6b2b);
+  color: #fff;
+  padding: 28px;
+  border-radius: 18px;
+  margin-bottom: 32px;
+}
+
+.header-card h1 {
+  margin: 0 0 6px;
+}
+
+.header-card p {
+  margin: 0;
+  opacity: 0.95;
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+.card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 32px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+/* =====================================================
+   INPUTS
+===================================================== */
+select,
+input[type="date"] {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #D1D5DB;
+}
+
+/* =====================================================
+   BUTTON
+===================================================== */
+button {
+  background: var(--strava-orange);
+  color: #fff;
+  border: none;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background: #e24302;
+}
+
+/* =====================================================
+   WEEK TABLE – DESKTOP
+===================================================== */
+.week-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 10px 8px;
+  table-layout: fixed;
+  font-size: 0.9rem;
+}
+
+.week-table th,
+.week-table td {
+  background: #fff;
+  padding: 14px;
+  vertical-align: top;
+  border-radius: 14px;
+}
+
+.week-table th {
+  background: #f1f1f1;
+  font-weight: 700;
+  text-align: left;
+}
+
+.week-col {
+  width: 160px;
+  font-weight: 800;
+}
+
+.km-col {
+  width: 130px;
+  text-align: right;
+  font-weight: 800;
+  background: #f9fafb;
+}
+
+/* =====================================================
+   SESSION
+===================================================== */
+.session {
+  background: #f7f9ff;
+  border: 1px solid #e1e7ff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+}
+
+.session:last-child {
+  margin-bottom: 0;
+}
+
+.session-title {
+  font-weight: 600;
+}
+
+.session-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* =====================================================
+   RACE
+===================================================== */
+.race-session {
+  background: #fff3b0 !important;
+  border: 2px solid #facc15;
+}
+
+.race-icon {
+  font-size: 20px;
+  margin-right: 6px;
+}
+
+.race-distance {
+  margin-top: 6px;
+  font-weight: 700;
+  color: #92400e;
+}
+
+/* =====================================================
+   ACCORDION – MOBIL
+===================================================== */
+.accordion-container {
+  margin-top: 16px;
+}
+
+.accordion-item {
+  background: white;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.accordion-header {
+  padding: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-toggle {
+  font-size: 1.4rem;
+  color: var(--strava-orange);
+}
+
+.accordion-body {
+  display: none;
+  padding: 0 16px 16px;
+}
+
+.accordion-item.open .accordion-body {
+  display: block;
+}
+
+.accordion-day {
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.accordion-summary {
+  font-weight: 800;
+  margin-top: 8px;
+  color: var(--strava-orange);
+}
+
+/* =====================================================
+   MOBIL VISNING – KORT (SWIPE)
+===================================================== */
+@media (max-width: 768px) {
+
+  .card {
+    padding: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .week-table {
+    display: flex;
+    overflow-x: auto;
+    gap: 18px;
+    padding: 10px 4px 20px;
+    scroll-snap-type: x mandatory;
+    border-spacing: 0 !important;
+  }
+
+  .week-table thead {
+    display: none;
+  }
+
+  .week-table tr {
+    display: flex;
+    flex-direction: column;
+    min-width: 90%;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    scroll-snap-align: center;
+  }
+
+  .week-table td {
+    background: none;
+    padding: 6px 0;
+  }
+
+  .week-col {
+    font-size: 20px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+  }
+
+  .km-col {
+    margin-top: 14px;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    font-size: 16px;
+    text-align: left;
+  }
+}
+
+/* =====================================================
+   PRINT
+===================================================== */
+@media print {
+  button,
+  .header-card p {
+    display: none;
+  }
+   /* force rebuild 2 */
+
+  .card {
+    box-shadow: none;
+  }
+}
