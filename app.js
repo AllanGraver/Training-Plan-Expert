@@ -150,7 +150,11 @@ function getInterpolatedZones(rawVDOT) {
    BEREGN VDOT FRA LØBSTID (nyt felt 2)
 ============================================================ */
 function calculateVDOT() {
-  const dist = parseFloat(document.getElementById("raceDistanceForVDOT").value);
+  const dist = VDOT_DISTANCE;
+if (!dist) {
+  alert("Vælg en distance");
+  return;
+}
 
   const hh = parseInt(document.getElementById("timeHours").value || 0);
   const mm = parseInt(document.getElementById("timeMinutes").value || 0);
