@@ -505,20 +505,45 @@ function renderWeekTable(plan) {
     }
 
     /* ---------- MODEL A: min + est. km ---------- */
-    let estKm = 0;
-    if (weekMinutes > 0 && ePace) {
-      const [m, s] = ePace.split(":").map(Number);
-      const paceMinPerKm = m + s / 60;
-      estKm = weekMinutes / paceMinPerKm;
-    }
+    
+let primaryLine = "";
+let secondaryLine = "";
+const ePaceStr = document.getElementById("zoneE")?.textContent;
 
-    html += `
-      <td class="km-col">
-        <div><strong>${weekMinutes} min</strong></div>
-        <div style="font-size:0.8em;color:#555">~${(weekKm + estKm).toFixed(1)} km</div>
-      </td>
-      </tr>
-    `;
+if (ePaceStr) {
+  const [m, s] = ePaceStr.split(":").map(Number);
+  const paceMinPerKm = m + s / 60;
+
+  /* ========= CASE 1: TIDSBASERET ========= */
+  if (weekMinutes > 0) {
+    const estKm = weekMinutes / paceMinPerKm;
+
+    primaryLine = `${weekMinutes} min`;
+    secondaryLine = `~${(weekKm + estKm).toFixed(1)} km`;
+  }
+
+  /* ========= CASE 2: DISTANCEBASERET ========= */
+  else if (weekKm > 0) {
+    const estMin = weekKm * paceMinPerKm;
+
+    primaryLine = `${weekKm.toFixed(1)} km`;
+    secondaryLine = `~${Math.round(estMin)} min`;
+  }
+}
+
+/* Fallback (hvis noget er helt tomt) */
+if (!primaryLine) {
+  primaryLine = "–";
+  secondaryLine = "";
+}
+
+html += `
+  <td class="km-col">
+    <div><strong>${primaryLine}</strong></div>
+    ${secondaryLine ? `<div style="font-size:0.8em;color:#555">${secondaryLine}</div>` : ""}
+  </td>
+`;
+
   }
 
   html += "</tbody></table>";
