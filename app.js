@@ -77,9 +77,13 @@ async function loadPlansIndex() {
 /* ============================================================
    FILTERING AF PLANER (felt 1 → felt 3)
 ============================================================ */
+
 function updatePlanDropdown() {
   const select = document.getElementById("planSelect");
+  if (!select) return;
+
   select.innerHTML = "";
+  planData = null;
 
   if (!SELECTED_RACE_DISTANCE) return;
 
@@ -94,11 +98,13 @@ function updatePlanDropdown() {
     select.appendChild(opt);
   });
 
-  if (filtered.length === 1) {
+  // ✅ Auto-vælg første plan hvis der findes nogen
+  if (filtered.length > 0) {
     select.value = filtered[0].id;
-    planData = filtered[0];
+    planData = plansCache[filtered[0].id] || filtered[0];
   }
 }
+
 
 
 
