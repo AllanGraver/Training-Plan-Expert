@@ -617,3 +617,37 @@ autoPad(ssInput);
     el.value = el.value.replace(/\D/g, ""); // fjern alt der ikke er tal
   });
 });
+
+/* ============================================================
+   PRINT-SUMMARY – udfyld før print
+============================================================ */
+window.addEventListener("beforeprint", () => {
+  // Løbsdistance (felt 1)
+  const distBtn = document.querySelector(".distance-btn.selected");
+  document.getElementById("printRaceDistance").textContent =
+    distBtn ? distBtn.textContent : "-";
+
+  // Konkurrencedato
+  const raceDate = document.getElementById("raceDate")?.value;
+  document.getElementById("printRaceDate").textContent =
+    raceDate ? new Date(raceDate).toLocaleDateString("da-DK") : "-";
+
+  // Træningsplan
+  document.getElementById("printPlanName").textContent =
+    planData?.name || "-";
+
+  // VDOT
+  document.getElementById("printVDOT").textContent =
+    USER_VDOT ? USER_VDOT.toFixed(1) : "-";
+
+  // Træningszoner
+  document.getElementById("printZoneE").textContent = document.getElementById("zoneE")?.textContent || "-";
+  document.getElementById("printZoneM").textContent = document.getElementById("zoneM")?.textContent || "-";
+  document.getElementById("printZoneT").textContent = document.getElementById("zoneT")?.textContent || "-";
+  document.getElementById("printZoneI").textContent = document.getElementById("zoneI")?.textContent || "-";
+  document.getElementById("printZoneR").textContent = document.getElementById("zoneR")?.textContent || "-";
+
+  // Dato for generering
+  document.getElementById("printGeneratedDate").textContent =
+    new Date().toLocaleDateString("da-DK");
+});
