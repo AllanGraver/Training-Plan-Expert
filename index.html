@@ -2,21 +2,17 @@
 <html lang="da">
 <head>
   <meta charset="UTF-8" />
-
-  <!-- Mobilvenlig visning -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Løbeklar – din plan til løbsdagen</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  style.css
 </head>
 
 <body>
 
-  <!-- =============================
-       HERO / HEADER
-  ============================== -->
+  <!-- HERO / HEADER -->
   <header class="hero">
     <h1>LØBEKLAR</h1>
     <p class="subtitle">
@@ -24,10 +20,7 @@
     </p>
   </header>
 
-
-  <!-- =============================
-       FELT 1: Dato + løbsdistance
-  ============================== -->
+  <!-- FELT 1 -->
   <section id="felt1" class="card-block">
     <h2>1. Vælg konkurrencedato og distance</h2>
 
@@ -42,15 +35,11 @@
     </div>
   </section>
 
-
-  <!-- =============================
-       FELT 2: Beregn træningspace (VDOT)
-  ============================== -->
+  <!-- FELT 2 -->
   <section id="felt2" class="card-block">
     <h2>2. Beregn træningspace</h2>
 
     <div class="vdot-row">
-      <!-- Distance -->
       <div class="vdot-field">
         <label for="vdotDistance">Distance</label>
         <select id="vdotDistance" class="vdot-select">
@@ -73,7 +62,6 @@
         </select>
       </div>
 
-      <!-- Tid -->
       <div class="vdot-field">
         <label>Løbstid</label>
         <div class="time-input-row">
@@ -86,10 +74,8 @@
       </div>
     </div>
 
-    <!-- Valgfri fallback-knap (kan skjules i CSS) -->
-    <button id="calculateVDOT">Beregn VDOT</button>
+    <button id="calculateVDOT" type="button">Beregn VDOT</button>
 
-    <!-- VDOT output -->
     <div id="vdotCard" class="vdot-card" style="display:none;">
       <h3>Din VDOT</h3>
       <div class="vdot-value" id="vdotValue"></div>
@@ -105,47 +91,33 @@
     </div>
   </section>
 
-
-  <!-- =============================
-       FELT 3: Vælg træningsplan
-  ============================== -->
+  <!-- FELT 3 -->
   <section id="felt3" class="card-block">
     <h2>3. Vælg træningsplan</h2>
-
     <label for="planSelect">Tilgængelige træningsplaner</label><br />
     <select id="planSelect"></select>
   </section>
 
-
-  <!-- =============================
-       FELT 4: Generér træningsplan
-  ============================== -->
+  <!-- FELT 4 -->
   <section id="felt4" class="card-block">
     <h2>4. Generér træningsplan</h2>
 
-    <button id="generatePlan">Generér træningsplan</button>
-    <button onclick="downloadCSV()">Download CSV</button>
-    <button onclick="downloadICS()">Download iCal</button>
-    <button onclick="window.print()">Print</button>
+    <button id="generatePlan" type="button">Generér træningsplan</button>
+    <button type="button" onclick="downloadCSV()">Download CSV</button>
+    <button type="button" onclick="downloadICS()">Download iCal</button>
+    <button type="button" onclick="window.print()">Print</button>
   </section>
-
 
   <hr />
 
-  <!-- =============================
-       OUTPUT
-  ============================== -->
   <h2>Træningsoversigt</h2>
   <div id="weekGrid"></div>
 
-
-  <!-- =============================
-       JS
-  ============================== -->
-  <script src="vdot-zones.js"></script>
-  <script src="app.js"></script>
+  <!-- JS (rækkefølge betyder noget) -->
+  <script src="vdot-zones.jsscript src="app.js"></script>
   <script src="card-layout.js"></script>
   <script src="accordion-weeks.js"></script>
 
 </body>
 </html>
+``
