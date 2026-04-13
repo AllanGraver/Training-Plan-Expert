@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===== Find eksisterende DOM ===== */
   const planSelect = document.getElementById("planSelect");
   const raceDate = document.getElementById("raceDate");
-  const generateBtn = document.querySelector("button[onclick='generatePlan()']");
+  const generateBtn = document.getElementById("generatePlan");
   const weekGrid = document.getElementById("weekGrid");
 
   if (!planSelect || !raceDate || !generateBtn || !weekGrid) {
@@ -18,9 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.createElement("div");
   header.className = "header-card";
   header.innerHTML = `
-    <h1>HLM Training Plan Selector</h1>
-    <p>Byg din træningsplan frem mod dit løb</p>
-  `;
+    header.innerHTML = `
+  <h1>LØBEKLAR</h1>
+  <p>- Din løbsdato. Dit tempo. Din plan.</p>
+`;
 
   /* ===== Helper til cards ===== */
   function createCard(title, elements) {
