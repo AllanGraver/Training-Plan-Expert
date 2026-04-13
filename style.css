@@ -674,23 +674,34 @@ button:hover {
   }
 }
 
+
 /* =========================================================
-   PRINT-LAYOUT
+   PRINT: LANDSCAPE + FIT I BREDDEN
 ========================================================= */
-#printHeader {
-  display: none;
-}
 
 @media print {
 
-  /* Generelt */
-  body {
-    background: #fff;
-    color: #000;
-    font-size: 11pt;
+  /* Landscape A4 + smalle margins */
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
   }
 
-  /* Skjul alt UI */
+  /* Sørg for at browseren prøver at beholde farver og linjer */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Generelt */
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 10pt;
+    line-height: 1.2;
+  }
+
+  /* Skjul alt UI – print kun header/spec + oversigt */
   .hero,
   #felt1,
   #felt2,
@@ -701,67 +712,94 @@ button:hover {
     display: none !important;
   }
 
-  /* Vis print-header */
+  /* Vis print header/spec (hvis du har #printHeader) */
   #printHeader {
-    display: block;
-    margin-bottom: 16px;
+    display: block !important;
+    margin-bottom: 10px;
   }
 
   #printHeader h1 {
-    font-size: 18pt;
-    margin-bottom: 6px;
+    font-size: 16pt;
+    margin: 0 0 4px 0;
   }
 
   #printHeader h2 {
-    font-size: 13pt;
-    margin: 12px 0 6px;
+    font-size: 12pt;
+    margin: 8px 0 4px 0;
   }
 
   #printHeader ul {
-    margin: 0 0 10px 18px;
+    margin: 0 0 8px 18px;
     padding: 0;
-    font-size: 10.5pt;
+    font-size: 10pt;
   }
 
   #printHeader li {
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
 
-  /* Træningsoversigt-table */
-  table {
+  /* ===== Træningsoversigt: Fit i bredden ===== */
+
+  /* Hvis du har en wrapper omkring tabel, kan denne hjælpe */
+  #weekGrid {
     width: 100%;
-    border-collapse: collapse;
-    font-size: 10.5pt;
+    margin: 0;
+    padding: 0;
+    overflow: visible !important;
   }
 
-  th, td {
+  /* Tabel: fast layout så kolonnerne deles pænt */
+  #weekGrid table {
+    width: 100% !important;
+    table-layout: fixed;     /* Nøglen til at få 7 dage til at passe */
+    border-collapse: collapse;
+    font-size: 9.2pt;        /* lidt mindre for at få plads */
+  }
+
+  /* Kolonnebredder: uge-kolonne + 7 dage */
+  #weekGrid th:first-child,
+  #weekGrid td:first-child {
+    width: 12%;              /* "Træningsuge xx" */
+    white-space: nowrap;
+  }
+
+  #weekGrid th:not(:first-child),
+  #weekGrid td:not(:first-child) {
+    width: 12.57%;           /* (100-12)/7 ≈ 12.57% */
+  }
+
+  #weekGrid th,
+  #weekGrid td {
     border: 1px solid #999;
-    padding: 5px;
+    padding: 4px 4px;        /* strammere padding */
     vertical-align: top;
   }
 
-  th {
-    background: #f2f2f2;
-    font-weight: bold;
+  #weekGrid th {
+    background: #f2f2f2 !important;
+    font-weight: 700;
     text-align: center;
   }
 
-  /* Uger i rækker – undgå sidesplit */
-  tr {
-    page-break-inside: avoid;
+  /* Tekst-wrapping i celler (så lange pas ikke sprænger layout) */
+  #weekGrid td {
+    word-break: break-word;
+    overflow-wrap: anywhere;
   }
 
-  /* Session styling */
+  /* Træningspas */
   .session {
-    margin-bottom: 4px;
+    margin: 0 0 3px 0;
+    padding: 0;
     page-break-inside: avoid;
   }
 
   .session strong {
-    font-weight: 600;
+    font-weight: 700;
   }
 
-  @page {
-    margin: 15mm;
+  /* Undgå at en uge-række splittes */
+  #weekGrid tr {
+    page-break-inside: avoid;
   }
 }
