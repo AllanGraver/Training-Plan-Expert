@@ -358,9 +358,22 @@ button:hover {
     text-align: center !important;
   }
 
-  .week-col {
-    width: 16% !important;
-    white-space: nowrap;
+  
+.week-col {
+  width: 16% !important;
+
+  /* ✅ Tillad linjeskift så teksten bliver i kolonnen */
+  white-space: normal !important;
+
+  /* ✅ Sikker wrap hvis der kommer lange ord/strenge */
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+
+  /* ✅ En anelse mindre skrift i uge-kolonnen */
+  font-size: 8.8pt !important;
+  line-height: 1.15 !important;
+}
+
   }
 
   .km-col {
