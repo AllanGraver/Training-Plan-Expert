@@ -14,7 +14,7 @@ https://www.codyhoover.com/time-to-run/
 
 🌐 Live hjemmeside
 Hjemmesiden kører på GitHub Pages og kan tilgås her:
-👉 https://allangraver.github.io/run-plan-selector/
+👉 https://allangraver.github.io/Training-Plan-Expert/
 
 ✨ Funktioner
 
