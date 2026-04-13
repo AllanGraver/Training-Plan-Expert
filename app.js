@@ -101,8 +101,10 @@ function updatePlanDropdown() {
 }
 
 
+
 /* ============================================================
-   RÅ VDOT-BEREGNING
+   RÅ VDOT-BEREGNING (KORRIGERET ENHEDER)
+   Daniels-formlen bruger hastighed i meter pr. minut (m/min)
 ============================================================ */
 function calculateRawVDOT(timeStr, distKm) {
   const parts = timeStr.split(":").map(Number);
@@ -118,17 +120,21 @@ function calculateRawVDOT(timeStr, distKm) {
 
   if (!seconds || !distKm) return null;
 
-  const velocity = distKm / (seconds / 60);
-  const vo2 = -4.6 + 0.182258 * (velocity * 60) + 0.000104 * Math.pow(velocity * 60, 2);
+  const tMin = seconds / 60;                     // tid i minutter
+  const v = (distKm * 1000) / tMin;              // hastighed i m/min  ✅
 
-  const vdot =
-    vo2 /
-    (0.8 +
-      0.1894393 * Math.exp(-0.012778 * (seconds / 60)) +
-      0.2989558 * Math.exp(-0.1932605 * (seconds / 60)));
+  const vo2 = -4.6 + 0.182258 * v + 0.000104 * (v * v);
+
+  const pct =
+    0.8 +
+    0.1894393 * Math.exp(-0.012778 * tMin) +
+    0.2989558 * Math.exp(-0.1932605 * tMin);
+
+  const vdot = vo2 / pct;
 
   return vdot;
 }
+
 
 
 /* ============================================================
