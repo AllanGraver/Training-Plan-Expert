@@ -231,6 +231,38 @@ function calculateVDOT() {
 
   document.getElementById("vdotCard").style.display = "block";
 }
+/* ============================================================
+   AUTO-BEREGNING AF VDOT
+============================================================ */
+
+let autoVDOTTimer = null;
+
+function canAutoCalculateVDOT() {
+  if (!VDOT_DISTANCE) return false;
+
+  const hh = parseInt(document.getElementById("timeHours").value || 0);
+  const mm = parseInt(document.getElementById("timeMinutes").value || 0);
+  const ss = parseInt(document.getElementById("timeSeconds").value || 0);
+
+  if (isNaN(hh) || isNaN(mm) || isNaN(ss)) return false;
+  if (mm > 59 || ss > 59) return false;
+
+  const totalSeconds = hh * 3600 + mm * 60 + ss;
+  return totalSeconds > 0;
+}
+
+function triggerAutoVDOT() {
+  clearTimeout(autoVDOTTimer);
+
+  autoVDOTTimer = setTimeout(() => {
+    if (canAutoCalculateVDOT()) {
+      calculateVDOT();
+    } else {
+      document.getElementById("vdotCard").style.display = "none";
+      USER_VDOT = null;
+    }
+  }, 250); // lille delay så den ikke spammer
+}
 
 
 /* ============================================================
@@ -260,9 +292,19 @@ function generatePlan() {
 /* ============================================================
    INIT
 ============================================================ */
+
 document.addEventListener("DOMContentLoaded", () => {
   loadPlansIndex();
+
+  ["timeHours", "timeMinutes", "timeSeconds"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener("input", triggerAutoVDOT);
+      el.addEventListener("change", triggerAutoVDOT);
+    }
+  });
 });
+
 
 /* ============================================================
    GENERÉR PLAN
