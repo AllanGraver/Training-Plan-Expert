@@ -334,6 +334,25 @@ function generatePlan() {
     alert("Vælg en konkurrencedato");
     return;
   }
+   
+function paceToMinPerKm(paceStr) {
+  if (!paceStr) return null;
+  const [m, s] = paceStr.split(":").map(Number);
+  return m + s / 60;
+}
+
+function minutesToKm(minutes, paceStr) {
+  const pace = paceToMinPerKm(paceStr);
+  if (!pace || minutes <= 0) return null;
+  return minutes / pace;
+}
+
+function formatMinutes(min) {
+  const h = Math.floor(min / 60);
+  const m = Math.round(min % 60);
+  return h > 0 ? `${h} t ${m} min` : `${m} min`;
+}
+
 
   renderWeekTable(planData);
 }
