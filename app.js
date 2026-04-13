@@ -281,8 +281,18 @@ function triggerAutoVDOT() {
    INIT
    ✅ Auto-VDOT hook på tidsfelter + klik på knap (fallback)
 ============================================================ */
+
 document.addEventListener("DOMContentLoaded", () => {
   loadPlansIndex();
+
+  // VDOT distance (dropdown)
+  const vdotDistanceSelect = document.getElementById("vdotDistance");
+  if (vdotDistanceSelect) {
+    vdotDistanceSelect.addEventListener("change", () => {
+      VDOT_DISTANCE = parseFloat(vdotDistanceSelect.value);
+      triggerAutoVDOT();
+    });
+  }
 
   // Auto-VDOT når man taster tid
   ["timeHours", "timeMinutes", "timeSeconds"].forEach(id => {
@@ -293,9 +303,10 @@ document.addEventListener("DOMContentLoaded", () => {
     el.addEventListener("change", triggerAutoVDOT);
   });
 
-  // Fallback: hvis du stadig har knappen "Beregn VDOT" i HTML
-  document.getElementById("calculateVDOT")?.addEventListener("click", () => calculateVDOT(false));
+  // ✅ Generér træningsplan
+  document.getElementById("generatePlan")?.addEventListener("click", generatePlan);
 });
+
 
 
 /* ============================================================
