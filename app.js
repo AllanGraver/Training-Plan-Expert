@@ -399,8 +399,9 @@ function generatePlan() {
 }
 
 
+
 /* ============================================================
-   RENDER UGE-TABEL
+   RENDER UGE-TABEL (MODEL A: MIN + EST. KM)
 ============================================================ */
 function renderWeekTable(plan) {
   const gridEl = document.getElementById("weekGrid");
@@ -411,7 +412,7 @@ function renderWeekTable(plan) {
 
   let sessions = [...plan.sessions];
 
-  // Parse distance
+  // Parse distance fra note hvis nødvendigt
   sessions.forEach(s => {
     if (s.distance_km == null && s.note) {
       const match = s.note.replace(",", ".").match(/([\d.]+)\s*km/i);
@@ -419,10 +420,7 @@ function renderWeekTable(plan) {
     }
   });
 
-  // Tilføj VDOT pace
-  // sessions.forEach(s => enrichSessionWithVDOT(s, USER_VDOT));
-
-  // Flyt race-pas
+  /* ---------- Flyt race-pas ---------- */
   const lastWeekSessions = sessions.filter(s => s.week === durationWeeks);
   let lastSession = null;
 
@@ -433,15 +431,7 @@ function renderWeekTable(plan) {
   if (lastSession) {
     sessions = sessions.filter(s => s !== lastSession);
 
-    let raceKm = plan.race_distance_km;
-    if (raceKm == null) raceKm = lastSession.distance_km;
-
-    if (raceKm == null && lastSession.note) {
-      const m = lastSession.note.replace(",", ".").match(/([\d.]+)\s*km/i);
-      if (m) raceKm = parseFloat(m[1]);
-    }
-
-    if (raceKm == null) raceKm = 21.1;
+    let raceKm = plan.race_distance_km ?? lastSession.distance_km ?? 21.1;
 
     lastSession.distance_km = raceKm;
     lastSession.note = `${raceKm} km`;
@@ -452,7 +442,7 @@ function renderWeekTable(plan) {
     sessions.push(lastSession);
   }
 
-  // Byg uge-struktur
+  /* ---------- Byg uge-struktur ---------- */
   const weeks = {};
   sessions.forEach(s => {
     if (!weeks[s.week]) weeks[s.week] = {};
@@ -460,15 +450,14 @@ function renderWeekTable(plan) {
     weeks[s.week][s.day].push(s);
   });
 
-  // Render tabel
   const headers = ["Mandag","Tirsdag","Onsdag","Torsdag","Fredag","Lørdag","Søndag"];
 
   let html = "<table class='week-table'><thead><tr>";
   html += "<th class='week-col'>Oversigt</th>";
   headers.forEach(h => html += `<th>${h}</th>`);
-  html += "<th class='km-col'>Ugentlig km / total</th></tr></thead><tbody>";
+  html += "<th class='km-col'>Ugentlig belastning</th></tr></thead><tbody>";
 
-  let totalKm = 0;
+  const ePace = document.getElementById("zoneE")?.textContent; // fx "5:25"
 
   for (let w = 1; w <= durationWeeks; w++) {
     const weekStart = getDateForWeekDay(raceDate, durationWeeks, w, 1);
@@ -476,14 +465,13 @@ function renderWeekTable(plan) {
     const calendarWeek = getISOWeekNumber(weekStart);
 
     let weekKm = 0;
+    let weekMinutes = 0;
 
     html += `
       <tr>
-        <td class='week-col'>
+        <td class="week-col">
           Træningsuge ${w} (uge ${calendarWeek})<br>
-          <span style="font-size:12px;color:#666">
-            (${formatDanskDatoKort(weekStart)} – ${formatDanskDatoKort(weekEnd)})
-          </span>
+          <span>(${formatDanskDatoKort(weekStart)} – ${formatDanskDatoKort(weekEnd)})</span>
         </td>
     `;
 
@@ -498,27 +486,17 @@ function renderWeekTable(plan) {
       let cell = "";
 
       ses.forEach(s => {
-        const km = s.distance_km ?? 0;
-        weekKm += km;
 
-        let extra = "";
-
-        if (s.pace && s.distance_km) {
-          const t = calcTimeFromZone(s);
-          extra += `<div class="session-note">Pace: ${s.pace} min/km</div>`;
-          if (t) extra += `<div class="session-note">Tid: ${t}</div>`;
-        }
+        if (s.distance_km != null) weekKm += s.distance_km;
+        if (s.duration_min != null) weekMinutes += s.duration_min;
 
         cell += `
           <div class="session ${s.isRace ? "race-session" : ""}">
             <div class="session-title">
-              ${s.isRace ? '<span class="race-icon">🏁</span> <strong>Race</strong>' : `<strong>${s.title}</strong>`}
+              ${s.isRace ? "🏁 <strong>Race</strong>" : `<strong>${s.title}</strong>`}
             </div>
-            ${s.isRace 
-              ? `<div class="race-distance">${km.toFixed(1)} km</div>` 
-              : (s.note ? `<div class="session-note">${s.note}</div>` : "")
-            }
-            ${extra}
+            ${s.distance_km != null ? `<div class="session-note">${s.distance_km.toFixed(1)} km</div>` : ""}
+            ${s.duration_min != null ? `<div class="session-note">${s.duration_min} min</div>` : ""}
           </div>
         `;
       });
@@ -526,8 +504,21 @@ function renderWeekTable(plan) {
       html += `<td>${cell}</td>`;
     }
 
-    totalKm += weekKm;
-    html += `<td class='km-col'>${weekKm.toFixed(1)} / ${totalKm.toFixed(1)}</td></tr>`;
+    /* ---------- MODEL A: min + est. km ---------- */
+    let estKm = 0;
+    if (weekMinutes > 0 && ePace) {
+      const [m, s] = ePace.split(":").map(Number);
+      const paceMinPerKm = m + s / 60;
+      estKm = weekMinutes / paceMinPerKm;
+    }
+
+    html += `
+      <td class="km-col">
+        <div><strong>${weekMinutes} min</strong></div>
+        <div style="font-size:0.8em;color:#555">~${(weekKm + estKm).toFixed(1)} km</div>
+      </td>
+      </tr>
+    `;
   }
 
   html += "</tbody></table>";
