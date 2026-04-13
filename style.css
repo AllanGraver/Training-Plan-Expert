@@ -620,3 +620,7 @@ button:hover {
     padding-right: 18px;
   }
 }
+
+#calculateVDOT {
+  display: none;
+}
