@@ -401,7 +401,7 @@ function renderWeekTable(plan) {
   });
 
   // Tilføj VDOT pace
-  sessions.forEach(s => enrichSessionWithVDOT(s, USER_VDOT));
+  // sessions.forEach(s => enrichSessionWithVDOT(s, USER_VDOT));
 
   // Flyt race-pas
   const lastWeekSessions = sessions.filter(s => s.week === durationWeeks);
