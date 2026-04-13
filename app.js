@@ -25,7 +25,8 @@ distanceButtons.forEach(btn => {
 
 
 /* ============================================================
-   DISTANCEKNAPPER – FELT 2 (scrollbar)
+   DISTANCEKNAPPER – FELT 2 (VDOT)
+   ✅ Trigger Auto-VDOT når distance vælges
 ============================================================ */
 const vdotButtons = document.querySelectorAll(".vdot-dist-btn");
 
@@ -35,6 +36,9 @@ vdotButtons.forEach(btn => {
     btn.classList.add("selected");
 
     VDOT_DISTANCE = parseFloat(btn.dataset.dist);
+
+    // ✅ Auto-beregn så snart distance vælges (hvis tid er klar)
+    triggerAutoVDOT();
   });
 });
 
@@ -81,31 +85,6 @@ function updatePlanDropdown() {
     select.value = filtered[0].id;
     planData = filtered[0];
   }
-}
-
-
-/* ============================================================
-   PACE / TID HELPERS
-============================================================ */
-function parsePace(paceStr) {
-  if (!paceStr) return null;
-  const [min, sec] = paceStr.split(":").map(Number);
-  return min + sec / 60;
-}
-
-function formatPace(pace) {
-  const min = Math.floor(pace);
-  const sec = Math.round((pace - min) * 60);
-  return `${min}:${String(sec).padStart(2, "0")}`;
-}
-
-function calcTime(distanceKm, paceStr) {
-  const pace = parsePace(paceStr);
-  if (!pace || !distanceKm) return null;
-  const minutes = distanceKm * pace;
-  const h = Math.floor(minutes / 60);
-  const m = Math.round(minutes % 60);
-  return h > 0 ? `${h}t ${m}m` : `${m} min`;
 }
 
 
@@ -194,20 +173,32 @@ function getInterpolatedZones(rawVDOT) {
 
 /* ============================================================
    BEREGN VDOT FRA LØBSTID
+   ✅ Tilføjet "silent" parameter så auto-beregning ikke giver alerts
 ============================================================ */
-function calculateVDOT() {
+function calculateVDOT(silent = false) {
   const dist = VDOT_DISTANCE;
   if (!dist) {
-    alert("Vælg en distance");
+    if (!silent) alert("Vælg en distance");
     return;
   }
 
-  const hh = parseInt(document.getElementById("timeHours").value || 0);
-  const mm = parseInt(document.getElementById("timeMinutes").value || 0);
-  const ss = parseInt(document.getElementById("timeSeconds").value || 0);
+  const hh = parseInt(document.getElementById("timeHours").value || 0, 10);
+  const mm = parseInt(document.getElementById("timeMinutes").value || 0, 10);
+  const ss = parseInt(document.getElementById("timeSeconds").value || 0, 10);
 
-  if (isNaN(mm) || isNaN(ss)) {
-    alert("Indtast mindst minutter og sekunder");
+  if (isNaN(hh) || isNaN(mm) || isNaN(ss)) {
+    if (!silent) alert("Indtast mindst minutter og sekunder");
+    return;
+  }
+
+  if (mm > 59 || ss > 59 || hh < 0 || mm < 0 || ss < 0) {
+    if (!silent) alert("Tjek din tid (mm/ss skal være 0-59)");
+    return;
+  }
+
+  const totalSeconds = hh * 3600 + mm * 60 + ss;
+  if (totalSeconds <= 0) {
+    if (!silent) alert("Indtast en tid større end 0");
     return;
   }
 
@@ -215,7 +206,7 @@ function calculateVDOT() {
 
   const raw = calculateRawVDOT(timeStr, dist);
   if (!raw) {
-    alert("Kunne ikke beregne VDOT – tjek dine tal");
+    if (!silent) alert("Kunne ikke beregne VDOT – tjek dine tal");
     return;
   }
 
@@ -231,21 +222,22 @@ function calculateVDOT() {
 
   document.getElementById("vdotCard").style.display = "block";
 }
+
+
 /* ============================================================
    AUTO-BEREGNING AF VDOT
 ============================================================ */
-
 let autoVDOTTimer = null;
 
 function canAutoCalculateVDOT() {
   if (!VDOT_DISTANCE) return false;
 
-  const hh = parseInt(document.getElementById("timeHours").value || 0);
-  const mm = parseInt(document.getElementById("timeMinutes").value || 0);
-  const ss = parseInt(document.getElementById("timeSeconds").value || 0);
+  const hh = parseInt(document.getElementById("timeHours").value || 0, 10);
+  const mm = parseInt(document.getElementById("timeMinutes").value || 0, 10);
+  const ss = parseInt(document.getElementById("timeSeconds").value || 0, 10);
 
   if (isNaN(hh) || isNaN(mm) || isNaN(ss)) return false;
-  if (mm > 59 || ss > 59) return false;
+  if (mm > 59 || ss > 59 || hh < 0 || mm < 0 || ss < 0) return false;
 
   const totalSeconds = hh * 3600 + mm * 60 + ss;
   return totalSeconds > 0;
@@ -256,14 +248,36 @@ function triggerAutoVDOT() {
 
   autoVDOTTimer = setTimeout(() => {
     if (canAutoCalculateVDOT()) {
-      calculateVDOT();
+      // ✅ silent=true så ingen alerts mens man taster
+      calculateVDOT(true);
     } else {
       document.getElementById("vdotCard").style.display = "none";
       USER_VDOT = null;
     }
-  }, 250); // lille delay så den ikke spammer
+  }, 250);
 }
 
+
+/* ============================================================
+   INIT
+   ✅ Auto-VDOT hook på tidsfelter + klik på knap (fallback)
+============================================================ */
+document.addEventListener("DOMContentLoaded", () => {
+  loadPlansIndex();
+
+  // Auto-VDOT når man taster tid
+  ["timeHours", "timeMinutes", "timeSeconds"].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    el.addEventListener("input", triggerAutoVDOT);
+    el.addEventListener("change", triggerAutoVDOT);
+  });
+
+  // Fallback: hvis du stadig har knappen "Beregn VDOT" i HTML
+  document.getElementById("calculateVDOT")?.addEventListener("click", () => calculateVDOT(false));
+});
+``
 
 /* ============================================================
    GENERÉR PLAN
