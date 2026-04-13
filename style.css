@@ -22,43 +22,41 @@ body {
 .app-container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 24px 16px 64px;
+  padding: 24px 24px 64px;
 }
 
 /* =====================================================
-   HEADER
+   HERO / HEADER
 ===================================================== */
-.header-card {
-  background: linear-gradient(135deg, var(--strava-orange), #ff6b2b);
-  color: #fff;
-  padding: 28px;
-  border-radius: 18px;
-  margin-bottom: 32px;
+.hero {
+  padding: 28px 24px 20px;
 }
 
-.header-card h1 {
+.hero h1 {
   margin: 0 0 6px;
+  font-size: 2.1rem;
 }
 
-.header-card p {
+.subtitle {
   margin: 0;
-  opacity: 0.95;
+  opacity: 0.8;
 }
 
 /* =====================================================
-   CARDS
+   CARD BLOCKS
 ===================================================== */
-.card {
+.card-block {
   background: var(--card-bg);
+  padding: 20px 22px;
   border-radius: 18px;
-  padding: 22px;
-  margin-bottom: 24px;
-  box-shadow: 0 10px 32px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+  margin-bottom: 26px;
 }
 
-.card h2 {
+.card-block h2 {
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+  font-size: 1.25rem;
 }
 
 /* =====================================================
@@ -71,10 +69,11 @@ input[type="date"] {
   font-size: 1rem;
   border-radius: 12px;
   border: 1px solid #D1D5DB;
+  margin-bottom: 14px;
 }
 
 /* =====================================================
-   BUTTON
+   BUTTONS
 ===================================================== */
 button {
   background: var(--strava-orange);
@@ -90,6 +89,101 @@ button {
 
 button:hover {
   background: #e24302;
+}
+
+#calculateVDOT {
+  display: none;
+}
+
+/* =====================================================
+   DISTANCE-KNAPPER (FELT 1)
+===================================================== */
+.distance-selector {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.distance-btn {
+  flex: 1;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  background: var(--strava-orange);
+  color: #fff;
+  border: 2px solid transparent;
+  font-weight: 600;
+}
+
+.distance-btn.selected {
+  border: 3px solid #000;
+}
+
+/* =====================================================
+   VDOT INPUT FELT
+===================================================== */
+.vdot-row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.vdot-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.time-input-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.time-input-row input {
+  width: 55px;
+  padding: 10px;
+  border-radius: 14px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.time-sep {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* =====================================================
+   VDOT RESULTAT
+===================================================== */
+.vdot-card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 22px;
+  margin-top: 20px;
+  box-shadow: 0 10px 32px rgba(0,0,0,0.08);
+}
+
+.vdot-card h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: var(--strava-orange);
+}
+
+.vdot-value {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.vdot-zones div {
+  background: #f9fafb;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* =====================================================
@@ -114,7 +208,6 @@ button:hover {
 .week-table th {
   background: #f1f1f1;
   font-weight: 700;
-  text-align: left;
 }
 
 .week-col {
@@ -126,11 +219,10 @@ button:hover {
   width: 130px;
   text-align: right;
   font-weight: 800;
-  background: #f9fafb;
 }
 
 /* =====================================================
-   SESSION
+   SESSIONS
 ===================================================== */
 .session {
   background: #f7f9ff;
@@ -144,10 +236,6 @@ button:hover {
   margin-bottom: 0;
 }
 
-.session-title {
-  font-weight: 600;
-}
-
 .session-note {
   font-size: 0.8rem;
   color: var(--muted);
@@ -157,89 +245,20 @@ button:hover {
    RACE
 ===================================================== */
 .race-session {
-  background: #fff3b0 !important;
+  background: #fff3b0;
   border: 2px solid #facc15;
 }
 
-.race-icon {
-  font-size: 20px;
-  margin-right: 6px;
-}
-
-.race-distance {
-  margin-top: 6px;
-  font-weight: 700;
-  color: #92400e;
-}
-
 /* =====================================================
-   ACCORDION – MOBIL
-===================================================== */
-.accordion-container {
-  margin-top: 16px;
-}
-
-.accordion-item {
-  background: white;
-  border-radius: 16px;
-  margin-bottom: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-}
-
-.accordion-header {
-  padding: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.accordion-toggle {
-  font-size: 1.4rem;
-  color: var(--strava-orange);
-}
-
-.accordion-body {
-  display: none;
-  padding: 0 16px 16px;
-}
-
-.accordion-item.open .accordion-body {
-  display: block;
-}
-
-.accordion-day {
-  background: #f9fafb;
-  border-radius: 10px;
-  padding: 8px;
-  margin-bottom: 8px;
-}
-
-.accordion-summary {
-  font-weight: 800;
-  margin-top: 8px;
-  color: var(--strava-orange);
-}
-
-/* =====================================================
-   MOBIL VISNING – KORT (SWIPE)
+   MOBIL
 ===================================================== */
 @media (max-width: 768px) {
-
-  .card {
-    padding: 0;
-    background: none;
-    box-shadow: none;
-  }
 
   .week-table {
     display: flex;
     overflow-x: auto;
     gap: 18px;
     padding: 10px 4px 20px;
-    scroll-snap-type: x mandatory;
-    border-spacing: 0 !important;
   }
 
   .week-table thead {
@@ -250,11 +269,9 @@ button:hover {
     display: flex;
     flex-direction: column;
     min-width: 90%;
-    background: #ffffff;
-    border-radius: 18px;
+    background: #fff;
     padding: 20px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-    scroll-snap-align: center;
+    border-radius: 18px;
   }
 
   .week-table td {
@@ -263,437 +280,33 @@ button:hover {
   }
 
   .week-col {
-    font-size: 20px;
-    margin-bottom: 14px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 12px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
   }
 
   .km-col {
-    margin-top: 14px;
-    border-top: 1px solid #eee;
-    padding-top: 12px;
-    font-size: 16px;
-    text-align: left;
-  }
-}
-
-/* =====================================================
-   PRINT
-===================================================== */
-@media print {
-  button,
-  .header-card p {
-    display: none;
-  }
-
-  .card {
-    box-shadow: none;
-  }
-}
-
-/* =====================================================
-   NYT: DISTANCEKNAPPER + VDOT-FELTER
-===================================================== */
-
-/* 4 knapper i én linje */
-.distance-selector {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.distance-btn {
-  flex: 1;
-  padding: 14px;
-  background: var(--strava-orange);   /* ORANGE BAGGRUND */
-  color: #fff;                        /* HVID TEKST */
-  border: 2px solid transparent;      /* Ingen kant som default */
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
-  transition: 0.2s;
-}
-
-/* Valgt knap → fed SORT kant */
-.distance-btn.selected {
-  border: 4px solid black;
-  background: var(--strava-orange);
-  color: #fff;
-}
-
-/* VDOT-felter side om side */
-.vdot-row {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.vdot-field {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Tidsfelter i tre kolonner */
-.time-input-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.time-input-row input {
-  width: 60px;
-  padding: 12px;
-  font-size: 1rem;
-  border-radius: 12px;
-  border: 1px solid #D1D5DB;
-  text-align: center;
-}
-
-.time-sep {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--strava-dark);
-}
-.time-input-row input:focus {
-  border-color: var(--strava-orange);
-  box-shadow: 0 0 4px rgba(252, 76, 2, 0.4);
-  outline: none;
-}
-/* =====================================================
-   VDOT RESULTATKORT – STRAVA STIL
-===================================================== */
-
-.vdot-card {
-  background: var(--card-bg);
-  border-radius: 18px;
-  padding: 22px;
-  margin-top: 20px;
-  box-shadow: 0 10px 32px rgba(0,0,0,0.08);
-  animation: fadeIn 0.3s ease-out;
-}
-
-.vdot-card h3 {
-  margin-top: 0;
-  color: var(--strava-orange);
-  font-size: 1.4rem;
-}
-
-.vdot-value {
-  font-size: 2.4rem;
-  font-weight: 800;
-  margin-bottom: 12px;
-  color: var(--strava-dark);
-}
-
-.vdot-zones div {
-  background: #f9fafb;
-  padding: 10px 14px;
-  border-radius: 12px;
-  margin-bottom: 8px;
-  font-size: 1rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-/* Scrollbare distanceknapper i felt 2 */
-.vdot-distance-scroll {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding: 6px 0;
-  scrollbar-width: none;
-}
-
-.vdot-distance-scroll::-webkit-scrollbar {
-  display: none;
-}
-
-.vdot-dist-btn {
-  white-space: nowrap;
-  padding: 10px 14px;
-  background: var(--strava-orange);
-  color: #fff;
-  border: 2px solid transparent;
-  border-radius: 12px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: 0.2s;
-}
-
-.vdot-dist-btn.selected {
-  border: 3px solid black;
-}
-/* =====================================================
-   ELEGANTERE LAYOUT – FELT 1 + FELT 2
-===================================================== */
-
-/* Mindre overskrifter */
-#felt1 h2, #felt2 h2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-/* Kompakt afstand */
-#felt1, #felt2 {
-  margin-bottom: 20px;
-}
-
-/* Distanceknapper (felt 1) – small elegant style */
-.distance-btn {
-  padding: 10px 0;
-  font-size: 0.9rem;
-  border-radius: 10px;
-}
-
-/* Scrollbare knapper (felt 2) – chip style */
-.vdot-distance-scroll {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding: 4px 0 10px;
-  scrollbar-width: none;
-}
-
-.vdot-distance-scroll::-webkit-scrollbar {
-  display: none;
-}
-
-.vdot-dist-btn {
-  flex-shrink: 0;
-  padding: 8px 14px;
-  font-size: 0.85rem;
-  background: var(--strava-orange);
-  color: white;
-  border-radius: 20px;
-  border: 2px solid transparent;
-  font-weight: 600;
-  transition: 0.2s;
-}
-
-.vdot-dist-btn.selected {
-  border: 3px solid black;
-}
-
-/* Tidsfelter – pill design */
-.time-input-row input {
-  width: 55px;
-  padding: 10px;
-  border-radius: 14px;
-  font-size: 1rem;
-  background: #fff;
-  border: 1px solid #ddd;
-}
-
-.time-sep {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--strava-dark);
-}
-
-/* Gør hele felt 2 mere kompakt */
-.vdot-row {
-  gap: 12px;
-  margin-bottom: 12px;
-}
-/* Mere luft rundt om hele appen */
-.app-container {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-/* Ekstra luft på mobil */
-@media (max-width: 768px) {
-  .app-container {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-
-  /* Gør knapperne mindre kant-til-kant */
-  .distance-selector,
-  .vdot-distance-scroll {
-    padding-left: 4px;
-    padding-right: 4px;
-  }
-}
-/* =====================================================
-   STRAVA CARD LAYOUT – FELT 1 + FELT 2
-===================================================== */
-
-.card-block {
-  background: var(--card-bg);
-  padding: 20px 22px;
-  border-radius: 18px;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
-  margin-bottom: 26px;
-}
-
-/* Mindre overskrifter */
-.card-block h2 {
-  margin-top: 0;
-  margin-bottom: 14px;
-  font-size: 1.25rem;
-}
-
-/* Inputs i kort */
-.card-block input,
-.card-block select {
-  margin-bottom: 14px;
-}
-
-/* Kompakt afstand */
-.vdot-row {
-  gap: 14px;
-  margin-bottom: 14px;
-}
-
-/* Scrollbare knapper – chip style */
-.vdot-distance-scroll {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding: 6px 0 10px;
-  scrollbar-width: none;
-}
-
-.vdot-distance-scroll::-webkit-scrollbar {
-  display: none;
-}
-
-.vdot-dist-btn {
-  flex-shrink: 0;
-  padding: 8px 14px;
-  font-size: 0.85rem;
-  background: var(--strava-orange);
-  color: white;
-  border-radius: 20px;
-  border: 2px solid transparent;
-  font-weight: 600;
-  transition: 0.2s;
-}
-
-.vdot-dist-btn.selected {
-  border: 3px solid black;
-}
-
-/* Distanceknapper i felt 1 – kompakt */
-.distance-btn {
-  padding: 10px 0;
-  font-size: 0.9rem;
-  border-radius: 10px;
-}
-
-/* Tidsfelter – pill design */
-.time-input-row input {
-  width: 55px;
-  padding: 10px;
-  border-radius: 14px;
-  font-size: 1rem;
-  background: #fff;
-  border: 1px solid #ddd;
-}
-
-.time-sep {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--strava-dark);
-}
-
-/* Mere luft rundt om hele appen */
-.app-container {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-@media (max-width: 768px) {
-  .app-container {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-}
-
-#calculateVDOT {
-  display: none;
-}
-
-/* =========================================================
-   PRINT: SPECIFIKATIONER / RESUMÉ
-========================================================= */
-.print-summary {
-  display: none;
-}
-
-@media print {
-  .print-summary {
-    display: block;
-    margin-bottom: 18px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #000;
-  }
-
-  .print-summary h2 {
-    font-size: 14pt;
-    margin-bottom: 8px;
-  }
-
-  .print-summary h3 {
-    font-size: 11.5pt;
     margin-top: 10px;
-    margin-bottom: 6px;
-  }
-
-  .print-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px 18px;
-    margin-bottom: 6px;
-    font-size: 10.5pt;
-  }
-
-  .print-zones {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-    font-size: 10.5pt;
-    margin-bottom: 6px;
-  }
-
-  .print-meta {
-    font-size: 9pt;
-    color: #444;
-    margin-top: 6px;
   }
 }
 
+/* =====================================================
+   PRINT (FINAL – LANDSCAPE + UGER LODRET / DAGE VANDRET)
+===================================================== */
 
-/* =========================================================
-   PRINT: LANDSCAPE + FIT I BREDDEN
-========================================================= */
+#printHeader { display: none; }
 
 @media print {
 
-  /* Landscape A4 + smalle margins */
   @page {
     size: A4 landscape;
     margin: 10mm;
   }
 
-  /* Sørg for at browseren prøver at beholde farver og linjer */
   * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  /* Generelt */
   body {
     background: #fff !important;
     color: #000 !important;
@@ -701,105 +314,74 @@ button:hover {
     line-height: 1.2;
   }
 
-  /* Skjul alt UI – print kun header/spec + oversigt */
   .hero,
-  #felt1,
-  #felt2,
-  #felt3,
-  #felt4,
-  button,
-  hr {
+  #felt1,#felt2,#felt3,#felt4,
+  button,hr {
     display: none !important;
   }
 
-  /* Vis print header/spec (hvis du har #printHeader) */
   #printHeader {
     display: block !important;
     margin-bottom: 10px;
   }
 
-  #printHeader h1 {
-    font-size: 16pt;
-    margin: 0 0 4px 0;
-  }
-
-  #printHeader h2 {
-    font-size: 12pt;
-    margin: 8px 0 4px 0;
-  }
-
-  #printHeader ul {
-    margin: 0 0 8px 18px;
-    padding: 0;
-    font-size: 10pt;
-  }
-
-  #printHeader li {
-    margin-bottom: 3px;
-  }
-
-  /* ===== Træningsoversigt: Fit i bredden ===== */
-
-  /* Hvis du har en wrapper omkring tabel, kan denne hjælpe */
-  #weekGrid {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: visible !important;
-  }
-
-  /* Tabel: fast layout så kolonnerne deles pænt */
-  #weekGrid table {
+  /* OVERSTYR MOBIL FLEX */
+  .week-table {
+    display: table !important;
     width: 100% !important;
-    table-layout: fixed;     /* Nøglen til at få 7 dage til at passe */
-    border-collapse: collapse;
-    font-size: 9.2pt;        /* lidt mindre for at få plads */
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    font-size: 9.2pt !important;
   }
 
-  /* Kolonnebredder: uge-kolonne + 7 dage */
-  #weekGrid th:first-child,
-  #weekGrid td:first-child {
-    width: 12%;              /* "Træningsuge xx" */
+  .week-table thead {
+    display: table-header-group !important;
+  }
+
+  .week-table tr {
+    display: table-row !important;
+    page-break-inside: avoid !important;
+  }
+
+  .week-table th,
+  .week-table td {
+    display: table-cell !important;
+    border: 1px solid #999 !important;
+    padding: 4px !important;
+    vertical-align: top !important;
+    background: #fff !important;
+  }
+
+  .week-table th {
+    background: #f2f2f2 !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+  }
+
+  .week-col {
+    width: 16% !important;
     white-space: nowrap;
   }
 
-  #weekGrid th:not(:first-child),
-  #weekGrid td:not(:first-child) {
-    width: 12.57%;           /* (100-12)/7 ≈ 12.57% */
-  }
-
-  #weekGrid th,
-  #weekGrid td {
-    border: 1px solid #999;
-    padding: 4px 4px;        /* strammere padding */
-    vertical-align: top;
-  }
-
-  #weekGrid th {
-    background: #f2f2f2 !important;
+  .km-col {
+    width: 9% !important;
+    text-align: right;
     font-weight: 700;
-    text-align: center;
   }
 
-  /* Tekst-wrapping i celler (så lange pas ikke sprænger layout) */
-  #weekGrid td {
+  .week-table th:not(.week-col):not(.km-col),
+  .week-table td:not(.week-col):not(.km-col) {
+    width: calc((100% - 25%) / 7) !important;
+  }
+
+  .week-table td {
     word-break: break-word;
     overflow-wrap: anywhere;
   }
 
-  /* Træningspas */
   .session {
-    margin: 0 0 3px 0;
-    padding: 0;
-    page-break-inside: avoid;
-  }
-
-  .session strong {
-    font-weight: 700;
-  }
-
-  /* Undgå at en uge-række splittes */
-  #weekGrid tr {
-    page-break-inside: avoid;
+    background: transparent !important;
+    border: none !important;
+    margin-bottom: 3px;
   }
 }
