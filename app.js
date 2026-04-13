@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Fallback: hvis du stadig har knappen "Beregn VDOT" i HTML
   document.getElementById("calculateVDOT")?.addEventListener("click", () => calculateVDOT(false));
 });
-``
+
 
 /* ============================================================
    GENERÉR PLAN
