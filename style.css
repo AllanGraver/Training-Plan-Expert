@@ -25,22 +25,35 @@ body {
   padding: 24px 24px 64px;
 }
 
+
 /* =====================================================
-   HERO / HEADER
+   HERO – STRAVA ORANGE (TITEL + UNDERTITEL)
 ===================================================== */
 .hero {
-  padding: 28px 24px 20px;
+  background: linear-gradient(
+    135deg,
+    var(--strava-orange),
+    #ff6b2b
+  );
+  color: #fff;
+  padding: 28px 28px 22px;
+  border-radius: 18px;
+  margin-bottom: 32px;
 }
 
 .hero h1 {
   margin: 0 0 6px;
-  font-size: 2.1rem;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
 }
 
-.subtitle {
+.hero .subtitle {
   margin: 0;
-  opacity: 0.8;
+  font-size: 1.05rem;
+  opacity: 0.95;
+  line-height: 1.4;
 }
+
 
 /* =====================================================
    CARD BLOCKS
