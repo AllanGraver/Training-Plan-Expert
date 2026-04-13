@@ -28,19 +28,32 @@ distanceButtons.forEach(btn => {
    DISTANCEKNAPPER – FELT 2 (VDOT)
    ✅ Trigger Auto-VDOT når distance vælges
 ============================================================ */
-const vdotButtons = document.querySelectorAll(".vdot-dist-btn");
 
-vdotButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    vdotButtons.forEach(b => b.classList.remove("selected"));
-    btn.classList.add("selected");
+document.addEventListener("DOMContentLoaded", () => {
+  loadPlansIndex();
 
-    VDOT_DISTANCE = parseFloat(btn.dataset.dist);
+  // VDOT distance (Felt 2) - dropdown
+  const vdotDistanceSelect = document.getElementById("vdotDistance");
+  if (vdotDistanceSelect) {
+    vdotDistanceSelect.addEventListener("change", () => {
+      VDOT_DISTANCE = parseFloat(vdotDistanceSelect.value);
+      triggerAutoVDOT(); // auto-beregn når distance vælges
+    });
+  }
 
-    // ✅ Auto-beregn så snart distance vælges (hvis tid er klar)
-    triggerAutoVDOT();
+  // Auto-VDOT når man taster tid
+  ["timeHours", "timeMinutes", "timeSeconds"].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    el.addEventListener("input", triggerAutoVDOT);
+    el.addEventListener("change", triggerAutoVDOT);
   });
+
+  // Fallback: "Beregn VDOT" knappen
+  document.getElementById("calculateVDOT")?.addEventListener("click", () => calculateVDOT(false));
 });
+
 
 
 /* ============================================================
