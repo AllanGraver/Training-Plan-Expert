@@ -292,6 +292,8 @@ function tryAutoGeneratePlan() {
   autoPlanTimer = setTimeout(() => {
     if (canAutoGeneratePlan()) {
       renderWeekTable(planData);
+      updatePlanStatus();   // ✅ feedback til brugeren
+      document.getElementById("weekGrid")?.scrollIntoView({ behavior: "smooth" });
     }
   }, 250);
 }
