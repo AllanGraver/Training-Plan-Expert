@@ -200,6 +200,33 @@ button:hover {
 }
 
 /* =====================================================
+   TRIN 4: ACTION-KNAPPER (CSV / iCal / Print) – ved siden af hinanden
+   Samme princip som distance-selector
+===================================================== */
+.action-selector {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 10px 0;               /* matcher dine distance-btn */
+  font-size: 0.9rem;
+  border-radius: 10px;
+  background: var(--strava-orange);
+  color: #fff;
+  border: 2px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+  width: auto;                   /* vigtigt: overskriv global button { width:100% } */
+}
+
+.action-btn:hover {
+  background: #e24302;
+}
+
+/* =====================================================
    WEEK TABLE – DESKTOP
 ===================================================== */
 .week-table {
