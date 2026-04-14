@@ -100,15 +100,18 @@
     <select id="planSelect"></select>
   </section>
 
+  
   <!-- FELT 4 -->
   <section id="felt4" class="card-block">
     <h2>TRIN 4 - Vælg løsning til nedenstående træningsplan</h2>
 
-    <!-- ✅ Generér plan knap er fjernet (auto-generering bruges) -->
-    <button type="button" onclick="downloadCSV()">Download CSV</button>
-    <button type="button" onclick="downloadICS()">Download iCal</button>
-    <button type="button" onclick="window.print()">Print</button>
+    <div class="action-selector">
+      <button type="button" class="action-btn" onclick="downloadCSV()">Download CSV</button>
+      <button type="button" class="action-btn" onclick="downloadICS()">Download iCal</button>
+      <button type="button" class="action-btn" onclick="window.print()">Print</button>
+    </div>
   </section>
+
 
   <hr />
 
