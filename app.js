@@ -11,17 +11,17 @@ let VDOT_DISTANCE = null;
 /* ============================================================
    DISTANCE-KNAPPER (felt 1)
 ============================================================ */
-const distanceButtons = document.querySelectorAll(".distance-btn");
+  //const distanceButtons = document.querySelectorAll(".distance-btn");
 
-distanceButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    distanceButtons.forEach(b => b.classList.remove("selected"));
-    btn.classList.add("selected");
+  //distanceButtons.forEach(btn => {
+  //  btn.addEventListener("click", () => {
+  //    distanceButtons.forEach(b => b.classList.remove("selected"));
+  //    btn.classList.add("selected");
 
-    SELECTED_RACE_DISTANCE = parseFloat(btn.dataset.distance);
-    updatePlanDropdown();
-  });
-});
+  //    SELECTED_RACE_DISTANCE = parseFloat(btn.dataset.distance);
+  //    updatePlanDropdown();
+  //  });
+  //});
 
 
 /* ============================================================
@@ -42,10 +42,10 @@ async function loadPlansIndex() {
 }
 
 
+
 /* ============================================================
    FILTERING AF PLANER (felt 1 → felt 3)
 ============================================================ */
-
 function updatePlanDropdown() {
   const select = document.getElementById("planSelect");
   if (!select) return;
@@ -67,14 +67,17 @@ function updatePlanDropdown() {
   });
 
   // ✅ Auto-vælg første plan hvis der findes nogen
-  
   if (filtered.length > 0) {
     select.value = filtered[0].id;
     planData = plansCache[filtered[0].id] || filtered[0];
 
-  // ✅ PlanData
-
+    // ✅ PlanData blev sat -> prøv auto-generér
+    if (typeof tryAutoGeneratePlan === "function") {
+      tryAutoGeneratePlan();
+    }
+  }
 }
+
 
 
 
@@ -217,6 +220,7 @@ function calculateVDOT(silent = false) {
   document.getElementById("zoneR").textContent = zones.R;
 
   document.getElementById("vdotCard").style.display = "block";
+  tryAutoGeneratePlan();
 }
 
 
