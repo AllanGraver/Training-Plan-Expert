@@ -25,38 +25,6 @@ distanceButtons.forEach(btn => {
 
 
 /* ============================================================
-   DISTANCEKNAPPER – FELT 2 (VDOT)
-   ✅ Trigger Auto-VDOT når distance vælges
-============================================================ */
-
-document.addEventListener("DOMContentLoaded", () => {
-  loadPlansIndex();
-
-  // VDOT distance (Felt 2) - dropdown
-  const vdotDistanceSelect = document.getElementById("vdotDistance");
-  if (vdotDistanceSelect) {
-    vdotDistanceSelect.addEventListener("change", () => {
-      VDOT_DISTANCE = parseFloat(vdotDistanceSelect.value);
-      triggerAutoVDOT(); // auto-beregn når distance vælges
-    });
-  }
-
-  // Auto-VDOT når man taster tid
-  ["timeHours", "timeMinutes", "timeSeconds"].forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    el.addEventListener("input", triggerAutoVDOT);
-    el.addEventListener("change", triggerAutoVDOT);
-  });
-
-  // Fallback: "Beregn VDOT" knappen
-  document.getElementById("calculateVDOT")?.addEventListener("click", () => calculateVDOT(false));
-});
-
-
-
-/* ============================================================
    LOAD INDEX.JSON + PLANER
 ============================================================ */
 async function loadPlansIndex() {
@@ -99,10 +67,13 @@ function updatePlanDropdown() {
   });
 
   // ✅ Auto-vælg første plan hvis der findes nogen
+  
   if (filtered.length > 0) {
     select.value = filtered[0].id;
     planData = plansCache[filtered[0].id] || filtered[0];
-  }
+
+  // ✅ PlanData
+
 }
 
 
@@ -305,35 +276,89 @@ function tryAutoGeneratePlan() {
 }
 
 
-/* ============================================================
-   INIT
-   ✅ Auto-VDOT hook på tidsfelter + klik på knap (fallback)
-============================================================ */
 
+/* ============================================================
+   INIT (ENESTE DOMContentLoaded)
+   - Auto-VDOT
+   - Auto-generér plan når alt er klar
+============================================================ */
 document.addEventListener("DOMContentLoaded", () => {
   loadPlansIndex();
 
-  // VDOT distance (dropdown)
+  /* =========================
+     FELT 1: Distanceknapper
+  ========================== */
+  const distanceButtons = document.querySelectorAll(".distance-btn");
+  distanceButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      distanceButtons.forEach(b => b.classList.remove("selected"));
+      btn.classList.add("selected");
+
+      SELECTED_RACE_DISTANCE = parseFloat(btn.dataset.distance);
+      updatePlanDropdown();
+
+      // ✅ Når distance ændres -> planer ændres -> prøv auto-generér
+      tryAutoGeneratePlan();
+    });
+  });
+
+  /* =========================
+     FELT 1: Konkurrencedato
+  ========================== */
+  document.getElementById("raceDate")?.addEventListener("change", () => {
+    tryAutoGeneratePlan();
+  });
+
+  /* =========================
+     FELT 3: Plan dropdown (sæt planData ved valg)
+  ========================== */
+  document.getElementById("planSelect")?.addEventListener("change", (e) => {
+    const id = e.target.value;
+    planData = plansCache[id] || null;
+    tryAutoGeneratePlan();
+  });
+
+  /* =========================
+     FELT 2: VDOT distance dropdown
+  ========================== */
   const vdotDistanceSelect = document.getElementById("vdotDistance");
   if (vdotDistanceSelect) {
     vdotDistanceSelect.addEventListener("change", () => {
       VDOT_DISTANCE = parseFloat(vdotDistanceSelect.value);
       triggerAutoVDOT();
+      tryAutoGeneratePlan();
     });
   }
 
-  // Auto-VDOT når man taster tid
+  /* =========================
+     FELT 2: Tid -> auto VDOT -> auto plan
+  ========================== */
   ["timeHours", "timeMinutes", "timeSeconds"].forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
 
-    el.addEventListener("input", triggerAutoVDOT);
-    el.addEventListener("change", triggerAutoVDOT);
+    el.addEventListener("input", () => {
+      triggerAutoVDOT();
+      tryAutoGeneratePlan();
+    });
+
+    el.addEventListener("change", () => {
+      triggerAutoVDOT();
+      tryAutoGeneratePlan();
+    });
   });
 
-  // ✅ Generér træningsplan
+  /* =========================
+     Fallback knapper (valgfrit)
+  ========================== */
+  document.getElementById("calculateVDOT")?.addEventListener("click", () => {
+    calculateVDOT(false);
+    tryAutoGeneratePlan();
+  });
+
   document.getElementById("generatePlan")?.addEventListener("click", generatePlan);
 });
+
 
 
 
