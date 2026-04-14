@@ -227,6 +227,41 @@ button:hover {
 }
 
 /* =====================================================
+   TRIN 4: ACTION-KNAPPER (CSV / iCal / Print) – med ikoner
+===================================================== */
+.action-selector {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 10px 0;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  background: var(--strava-orange);
+  color: #fff;
+  border: 2px solid transparent;
+  font-weight: 700;
+  cursor: pointer;
+
+  /* vigtigt pga. global button { width:100% } */
+  width: auto;
+}
+
+.action-btn:hover {
+  background: #e24302;
+}
+
+/* Mobil: lad dem wrappe pænt hvis der bliver for trangt */
+@media (max-width: 520px) {
+  .action-selector { flex-wrap: wrap; }
+  .action-btn { flex: 1 1 48%; }
+  .action-btn:last-child { flex-basis: 100%; }
+}
+
+/* =====================================================
    WEEK TABLE – DESKTOP
 ===================================================== */
 .week-table {
