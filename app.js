@@ -268,6 +268,7 @@ function canAutoGeneratePlan() {
   return !!planData && !!USER_VDOT && !!raceDateInput;
 }
 
+
 function updatePlanStatus() {
   const statusEl = document.getElementById("planStatus");
   if (!statusEl) return;
@@ -284,19 +285,20 @@ function updatePlanStatus() {
   document.getElementById("statusPlan").textContent = planData.name;
 
   statusEl.style.display = "block";
+} // ✅ VIGTIG: lukker updatePlanStatus korrekt
 
 function tryAutoGeneratePlan() {
   clearTimeout(autoPlanTimer);
 
-  // Debounce så vi ikke renderer flere gange mens man taster/ændrer
   autoPlanTimer = setTimeout(() => {
     if (canAutoGeneratePlan()) {
       renderWeekTable(planData);
-      updatePlanStatus();   // ✅ feedback til brugeren
+      updatePlanStatus();
       document.getElementById("weekGrid")?.scrollIntoView({ behavior: "smooth" });
     }
   }, 250);
 }
+
 
 
 
