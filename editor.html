@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <title>Træningsplan Editor – Strava Style</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      background: #f7f7f7;
+      overflow: hidden;
+    }
+
+    /* SIDEBAR */
+    #sidebar {
+      width: 260px;
+      background: #ffffff;
+      border-right: 1px solid #ddd;
+      padding: 15px;
+      overflow-y: auto;
+    }
+
+    #sidebar h2 {
+      margin-top: 0;
+      font-size: 18px;
+      color: #fc4c02;
+    }
+
+    .plan-item {
+      padding: 10px;
+      margin-bottom: 6px;
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .plan-item:hover {
+      background: #fc4c02;
+      color: white;
+      border-color: #fc4c02;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 6px;
+      background: #fc4c02;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #d84302;
+    }
+
+    /* MAIN */
+    #main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      overflow-y: auto;
+    }
+
+    .week-card {
+      background: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .session-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .session-row:last-child {
+      border-bottom: none;
+    }
+
+    .session-title {
+      font-weight: bold;
+    }
+
+    .session-meta {
+      color: #555;
+    }
+
+    .edit-btn {
+      background: #0078d4;
+      padding: 6px 10px;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* EDITOR PANEL */
+    #editorPanel {
+      width: 380px;
+      background: #ffffff;
+      border-left: 1px solid #ddd;
+      padding: 15px;
+      overflow-y: auto;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    #jsonPreview {
+      background: #1e1e1e;
+      color: #dcdcdc;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 15px;
+      height: 200px;
+      overflow-y: auto;
+      font-family: monospace;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <h2>Planer</h2>
+    <div id="planLibrary"></div>
+
+    <button onclick="savePlan()">Gem plan</button>
+    <button onclick="savePlanAs()">Gem som ny</button>
+    <button onclick="exportPlan()">Eksportér</button>
+    <button onclick="importPlan()">Importér</button>
+
+    <hr style="margin: 20px 0;">
+
+    <h2>Uger</h2>
+    <div id="weekList"></div>
+    <button onclick="addSession()">+ Tilføj pas</button>
+  </div>
+
+  <!-- MAIN -->
+  <div id="main"></div>
+
+  <!-- EDITOR PANEL -->
+  <div id="editorPanel">
+    <h2>Rediger pas</h2>
+    <div id="sessionEditor">Vælg et pas…</div>
+
+    <h3>JSON</h3>
+    <div id="jsonPreview"></div>
+  </div>
+
+  <script>
+    /* -----------------------------
+       INITIAL DATA
+    ------------------------------ */
+    let plan = {
+      plan_name: "Halvmaraton 12 uger",
+      duration_weeks: 12,
+      race_distance_km: 21.1,
+      sessions: []
+    };
+
+    let selectedWeek = 1;
+    let selectedSessionIndex = null;
+
+    /* -----------------------------
+       LIBRARY FUNCTIONS
+    ------------------------------ */
+    function loadLibrary() {
+      const raw = localStorage.getItem("training_plans_library");
+      return raw ? JSON.parse(raw) : {};
+    }
+
+    function saveLibrary(lib) {
+      localStorage.setItem("training_plans_library", JSON.stringify(lib));
+    }
+
+    function renderLibrary() {
+      const lib = loadLibrary();
+      const div = document.getElementById("planLibrary");
+      div.innerHTML = "";
+
+      Object.keys(lib).forEach(name => {
+        const item = document.createElement("div");
+        item.className = "plan-item";
+        item.textContent = name;
+        item.onclick = () => loadPlan(name);
+        div.appendChild(item);
+      });
+    }
+
+    function savePlan() {
+      const name = plan.plan_name || prompt("Navn på planen:");
+      if (!name) return;
+
+      const lib = loadLibrary();
+      lib[name] = plan;
+      saveLibrary(lib);
+      renderLibrary();
+      alert("Plan gemt");
+    }
+
+    function savePlanAs() {
+      const name = prompt("Navn på ny plan:");
+      if (!name) return;
+
+      const lib = loadLibrary();
+      lib[name] = plan;
+      saveLibrary(lib);
+      renderLibrary();
+    }
+
+    function loadPlan(name) {
+      const lib = loadLibrary();
+      plan = JSON.parse(JSON.stringify(lib[name]));
+      selectedWeek = 1;
+      selectedSessionIndex = null;
+      renderWeeks();
+      renderMain();
+      renderEditor();
+    }
+
+    function exportPlan() {
+      const data = JSON.stringify(plan, null, 2);
+      const blob = new Blob([data], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = plan.plan_name + ".json";
+      a.click();
+    }
+
+    function importPlan() {
+      const input = document.createElement("input");
+      input.type = "file";
+      input.accept = ".json";
+
+      input.onchange = e => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = () => {
+          plan = JSON.parse(reader.result);
+          savePlan();
+          renderLibrary();
+          renderWeeks();
+          renderMain();
+          renderEditor();
+        };
+
+        reader.readAsText(file);
+      };
+
+      input.click();
+    }
+
+    /* -----------------------------
+       WEEK + SESSION RENDERING
+    ------------------------------ */
+    function renderWeeks() {
+      const weekList = document.getElementById("weekList");
+      weekList.innerHTML = "";
+
+      for (let w = 1; w <= plan.duration_weeks; w++) {
+        const div = document.createElement("div");
+        div.className = "plan-item";
+        div.textContent = "Uge " + w;
+        div.onclick = () => {
+          selectedWeek = w;
+          selectedSessionIndex = null;
+          renderMain();
+          renderEditor();
+        };
+        weekList.appendChild(div);
+      }
+    }
+
+    function renderMain() {
+      const main = document.getElementById("main");
+      main.innerHTML = "";
+
+      const weekCard = document.createElement("div");
+      weekCard.className = "week-card";
+
+      weekCard.innerHTML = `<h2>Uge ${selectedWeek}</h2>`;
+
+      const sessions = plan.sessions.filter(s => s.week === selectedWeek);
+
+      sessions.forEach((s, i) => {
+        const row = document.createElement("div");
+        row.className = "session-row";
+
+        row.innerHTML = `
+          <div>
+            <div class="session-title">${s.title}</div>
+            <div class="session-meta">${s.distance_km ?? "-"} km • ${s.duration_min ?? "-"} min</div>
+          </div>
+          <div class="edit-btn" onclick="editSession(${i})">Rediger</div>
+        `;
+
+        weekCard.appendChild(row);
+      });
+
+      main.appendChild(weekCard);
+    }
+
+    /* -----------------------------
+       SESSION EDITOR
+    ------------------------------ */
+    function editSession(index) {
+      selectedSessionIndex = index;
+      renderEditor();
+    }
+
+    function renderEditor() {
+      const editorDiv = document.getElementById("sessionEditor");
+      const previewDiv = document.getElementById("jsonPreview");
+
+      if (selectedSessionIndex === null) {
+        editorDiv.innerHTML = "Vælg et pas…";
+        previewDiv.innerHTML = "";
+        return;
+      }
+
+      const session = plan.sessions.filter(s => s.week === selectedWeek)[selectedSessionIndex];
+
+      editorDiv.innerHTML = `
+        <label>Titel</label>
+        <input id="title" value="${session.title}" />
+
+        <label>Dag</label>
+        <select id="day">
+          <option value="1">Mandag</option>
+          <option value="2">Tirsdag</option>
+          <option value="3">Onsdag</option>
+          <option value="4">Torsdag</option>
+          <option value="5">Fredag</option>
+          <option value="6">Lørdag</option>
+          <option value="7">Søndag</option>
+        </select>
+
+        <label>Note</label>
+        <textarea id="note">${session.note ?? ""}</textarea>
+
+        <button onclick="editSegments()">Rediger segmenter</button>
+        <button onclick="autoCalc()">Beregn km/min</button>
+        <button onclick="saveSession()">Gem</button>
+      `;
+
+      document.getElementById("day").value = session.day;
+
+      previewDiv.textContent = JSON.stringify(session, null, 2);
+    }
+
+    function saveSession() {
+      const sessions = plan.sessions.filter(s => s.week === selectedWeek);
+      const session = sessions[selectedSessionIndex];
+
+      session.title = document.getElementById("title").value;
+      session.day = Number(document.getElementById("day").value);
+      session.note = document.getElementById("note").value;
+
+      renderMain();
+      renderEditor();
+    }
+
+    /* -----------------------------
+       SEGMENT EDITOR
+    ------------------------------ */
+    function editSegments() {
+      const session = plan.sessions.filter(s => s.week === selectedWeek)[selectedSessionIndex];
+
+      const container = document.createElement("div");
+      container.style.height = "400px";
+
+      const modal = window.open("", "Segments", "width=600,height=700");
+      modal.document.write("<h2>Rediger segmenter</h2>");
+      modal.document.body.appendChild(container);
+
+      const editor = new JSONEditor(container, { mode: "tree" });
+      editor.set(session.segments);
+
+      const saveBtn = modal.document.createElement("button");
+      saveBtn.textContent = "Gem segmenter";
+      saveBtn.onclick = () => {
+        session.segments = editor.get();
+        modal.close();
+        renderEditor();
+      };
+
+      modal.document.body.appendChild(saveBtn);
+    }
+
+    /* -----------------------------
+       AUTO CALCULATION
+    ------------------------------ */
+    function autoCalc() {
+      const session = plan.sessions.filter(s => s.week === selectedWeek)[selectedSessionIndex];
+
+      let totalKm = 0;
+      let totalMin = 0;
+
+      session.segments.forEach(seg => {
+        if (seg.distance_km) totalKm += seg.distance_km;
+        if (seg.duration_min) totalMin += seg.duration_min;
+
+        if (seg.steps) {
+          seg.steps.forEach(step => {
+            if (step.duration_min) totalMin += step.duration_min;
+          });
+        }
+
+        if (seg.repetitions && seg.steps) {
+          let blockMin = seg.steps.reduce((sum, s) => sum + (s.duration_min || 0), 0);
+          totalMin += blockMin * (seg.repetitions - 1);
+        }
+      });
+
+      session.distance_km = Number(totalKm.toFixed(1));
+      session.duration_min = Math.round(totalMin);
+
+      renderMain();
+      renderEditor();
+    }
+
+    /* -----------------------------
+       ADD SESSION
+    ------------------------------ */
+    function addSession() {
+      plan.sessions.push({
+        week: selectedWeek,
+        day: 1,
+        title: "Nyt pas",
+        distance_km: null,
+        duration_min: null,
+        note: "",
+        segments: []
+      });
+
+      renderMain();
+    }
+
+    /* -----------------------------
+       INIT
+    ------------------------------ */
+    renderLibrary();
+    renderWeeks();
+    renderMain();
+  </script>
+
+</body>
+</html>
