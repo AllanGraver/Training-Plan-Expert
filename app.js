@@ -268,6 +268,23 @@ function canAutoGeneratePlan() {
   return !!planData && !!USER_VDOT && !!raceDateInput;
 }
 
+function updatePlanStatus() {
+  const statusEl = document.getElementById("planStatus");
+  if (!statusEl) return;
+
+  const distBtn = document.querySelector(".distance-btn.selected");
+  const raceDate = document.getElementById("raceDate")?.value;
+
+  if (!distBtn || !raceDate || !USER_VDOT || !planData) return;
+
+  document.getElementById("statusDistance").textContent = distBtn.textContent;
+  document.getElementById("statusVDOT").textContent = USER_VDOT.toFixed(1);
+  document.getElementById("statusDate").textContent =
+    new Date(raceDate).toLocaleDateString("da-DK");
+  document.getElementById("statusPlan").textContent = planData.name;
+
+  statusEl.style.display = "block";
+
 function tryAutoGeneratePlan() {
   clearTimeout(autoPlanTimer);
 
