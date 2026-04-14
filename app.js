@@ -888,31 +888,32 @@ function generateCSV(planData, raceDateStr) {
   return rows.join("\n");
 }
 
+
 function downloadCSV() {
   const raceDate = document.getElementById("raceDate")?.value;
   if (!raceDate) {
     alert("Vælg en konkurrencedato først.");
     return;
   }
-  if (!window.planData) {
+  if (!planData) {
     alert("Vælg en træningsplan først.");
     return;
   }
 
-  const csv = generateCSV(window.planData, raceDate);
-
+  const csv = generateCSV(planData, raceDate);
   const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
   const url = URL.createObjectURL(blob);
 
   const a = document.createElement("a");
   a.href = url;
-  a.download = `${window.planData.id || "training-plan"}.csv`;
+  a.download = `${planData.id || "training-plan"}.csv`;
   document.body.appendChild(a);
   a.click();
   a.remove();
 
   URL.revokeObjectURL(url);
 }
+
 
 /* ============================================================
    iCAL / ICS
@@ -958,28 +959,29 @@ END:VEVENT
   return ics;
 }
 
+
 function downloadICS() {
   const raceDate = document.getElementById("raceDate")?.value;
   if (!raceDate) {
     alert("Vælg en konkurrencedato først.");
     return;
   }
-  if (!window.planData) {
+  if (!planData) {
     alert("Vælg en træningsplan først.");
     return;
   }
 
-  const ics = generateICS(window.planData, raceDate);
-
+  const ics = generateICS(planData, raceDate);
   const blob = new Blob([ics], { type: "text/calendar;charset=utf-8;" });
   const url = URL.createObjectURL(blob);
 
   const a = document.createElement("a");
   a.href = url;
-  a.download = `${window.planData.id || "training-plan"}.ics`;
+  a.download = `${planData.id || "training-plan"}.ics`;
   document.body.appendChild(a);
   a.click();
   a.remove();
 
   URL.revokeObjectURL(url);
 }
+
