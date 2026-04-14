@@ -324,6 +324,20 @@ button:hover {
   border: 2px solid #facc15;
 }
 
+
+/* =====================================================
+   STATUSLINJE – PLAN KLAR
+===================================================== */
+.plan-status {
+  background: #f9fafb;
+  border-left: 5px solid var(--strava-orange);
+  padding: 12px 14px;
+  margin: 16px 0 10px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: var(--strava-dark);
+}
+
 /* =====================================================
    MOBIL
 ===================================================== */
