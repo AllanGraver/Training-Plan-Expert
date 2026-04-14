@@ -282,6 +282,28 @@ function triggerAutoVDOT() {
   }, 250);
 }
 
+/* ============================================================
+   AUTO-GENERÉR PLAN (når alt er klart)
+============================================================ */
+
+let autoPlanTimer = null;
+
+function canAutoGeneratePlan() {
+  const raceDateInput = document.getElementById("raceDate")?.value;
+  return !!planData && !!USER_VDOT && !!raceDateInput;
+}
+
+function tryAutoGeneratePlan() {
+  clearTimeout(autoPlanTimer);
+
+  // Debounce så vi ikke renderer flere gange mens man taster/ændrer
+  autoPlanTimer = setTimeout(() => {
+    if (canAutoGeneratePlan()) {
+      renderWeekTable(planData);
+    }
+  }, 250);
+}
+
 
 /* ============================================================
    INIT
