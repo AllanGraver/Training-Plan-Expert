@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -28,10 +29,10 @@
     <input type="date" id="raceDate" />
 
     <div id="distanceButtons" class="distance-selector">
-      <button class="distance-btn" data-distance="5">5 km</button>
-      <button class="distance-btn" data-distance="10">10 km</button>
-      <button class="distance-btn" data-distance="21.1">21,1 km</button>
-      <button class="distance-btn" data-distance="42.2">42,2 km</button>
+      <button type="button" class="distance-btn" data-distance="5">5 km</button>
+      <button type="button" class="distance-btn" data-distance="10">10 km</button>
+      <button type="button" class="distance-btn" data-distance="21.1">21,1 km</button>
+      <button type="button" class="distance-btn" data-distance="42.2">42,2 km</button>
     </div>
   </section>
 
@@ -74,6 +75,7 @@
       </div>
     </div>
 
+    <!-- Beregn VDOT (skjult i CSS, men kan stå her som fallback) -->
     <button id="calculateVDOT" type="button">Beregn VDOT</button>
 
     <div id="vdotCard" class="vdot-card" style="display:none;">
@@ -85,7 +87,7 @@
         <div><strong>E - Easy pace (Long). 65–79% of max heart rate:</strong> <span id="zoneE"></span></div>
         <div><strong>M - Marathon pace. 80–89% of max heart rate:</strong> <span id="zoneM"></span></div>
         <div><strong>T - Threshold pace (Tempo). 88–92% of max heart rate:</strong> <span id="zoneT"></span></div>
-        <div><strong>I - Interval pace. Near max heart rate: :</strong> <span id="zoneI"></span></div>
+        <div><strong>I - Interval pace. Near max heart rate:</strong> <span id="zoneI"></span></div>
         <div><strong>R - Repetition pace. Faster than interval pace:</strong> <span id="zoneR"></span></div>
       </div>
     </div>
@@ -102,35 +104,32 @@
   <section id="felt4" class="card-block">
     <h2>TRIN 4 - Vælg løsning til nedenstående træningsplan</h2>
 
-    <button id="generatePlan" type="button">Generér træningsplan</button>
+    <!-- ✅ Generér plan knap er fjernet (auto-generering bruges) -->
     <button type="button" onclick="downloadCSV()">Download CSV</button>
     <button type="button" onclick="downloadICS()">Download iCal</button>
     <button type="button" onclick="window.print()">Print</button>
   </section>
 
   <hr />
-  
 
-<!-- PRINT HEADER + SPECIFIKATIONER -->
-<section id="printHeader">
-  <h1>LØBEKLAR – Træningsplan</h1>
+  <!-- PRINT HEADER + SPECIFIKATIONER -->
+  <section id="printHeader">
+    <h1>LØBEKLAR – Træningsplan</h1>
 
-  <h2>Valgte specifikationer</h2>
-  <ul>
-    <li><strong>Konkurrencedato:</strong> <span id="printRaceDate"></span></li>
-    <li>
-      <strong>VDOT‑værdier:</strong>
-      E <span id="printZoneE"></span>,
-      M <span id="printZoneM"></span>,
-      T <span id="printZoneT"></span>,
-      I <span id="printZoneI"></span>,
-      R <span id="printZoneR"></span>
-    </li>
-    <li><strong>Valgt træningsplan:</strong> <span id="printPlanName"></span></li>
-  </ul>
-</section>
-
-
+    <h2>Valgte specifikationer</h2>
+    <ul>
+      <li><strong>Konkurrencedato:</strong> <span id="printRaceDate"></span></li>
+      <li>
+        <strong>VDOT‑værdier:</strong>
+        E <span id="printZoneE"></span>,
+        M <span id="printZoneM"></span>,
+        T <span id="printZoneT"></span>,
+        I <span id="printZoneI"></span>,
+        R <span id="printZoneR"></span>
+      </li>
+      <li><strong>Valgt træningsplan:</strong> <span id="printPlanName"></span></li>
+    </ul>
+  </section>
 
   <h2>Træningsoversigt</h2>
   <div id="weekGrid"></div>
@@ -138,6 +137,6 @@
   <!-- JS -->
   <script src="vdot-zones.js"></script>
   <script src="app.js"></script>
-  <!-- </body>
+  <script src="accordion-weeks.js"></script>
+</body>
 </html>
-``
