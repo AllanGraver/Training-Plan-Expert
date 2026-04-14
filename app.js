@@ -746,3 +746,240 @@ window.addEventListener("beforeprint", () => {
   document.getElementById("printZoneI").textContent = document.getElementById("zoneI")?.textContent || "-";
   document.getElementById("printZoneR").textContent = document.getElementById("zoneR")?.textContent || "-";
 });
+
+
+/* ============================================================
+   EXPORT: CSV + iCAL (ICS)
+   - Works on GitHub Pages (client-side only)
+   - Requires: planData + raceDate
+============================================================ */
+
+/* ---------- Helpers ---------- */
+function formatDateISO(date) {
+  // YYYY-MM-DD
+  return date.toISOString().split("T")[0];
+}
+
+function escapeCSV(value) {
+  if (value == null) return "";
+  const str = String(value);
+  // Quote if it contains comma, quote or newline
+  return /[",\n]/.test(str) ? `"${str.replace(/"/g, '""')}"` : str;
+}
+
+function formatDateICS(date) {
+  // YYYYMMDD (VALUE=DATE)
+  return date.toISOString().split("T")[0].replace(/-/g, "");
+}
+
+function escapeICS(text) {
+  // RFC5545-ish escaping
+  return String(text || "")
+    .replace(/\\/g, "\\\\")
+    .replace(/\n/g, "\\n")
+    .replace(/,/g, "\\,")
+    .replace(/;/g, "\\;");
+}
+
+/* ---------- Date mapping: (week/day) relative to raceDate ---------- */
+/*
+Assumption:
+- session.day = 1..7 (Mon..Sun)
+- raceDate is the event day (whatever weekday)
+- Week N is counted backwards from race week:
+  week=duration_weeks is race week (often your plan ends with race)
+  BUT your plans currently use week=1 as first week and week=12 as race week.
+So: week=1 is earliest, week=duration_weeks is race week.
+
+We compute:
+- Find Monday of race week
+- Compute Monday of week 1 by subtracting (duration_weeks-1)*7 days
+- Add (session.week-1)*7 + (session.day-1)
+*/
+function getSessionDateFromRace(raceDateStr, session, durationWeeks) {
+  const raceDate = new Date(raceDateStr);
+  if (Number.isNaN(raceDate.getTime())) return null;
+
+  // Monday in race week:
+  const raceDay = raceDate.getDay() || 7; // Sun -> 7
+  const mondayRaceWeek = new Date(raceDate);
+  mondayRaceWeek.setDate(raceDate.getDate() - (raceDay - 1));
+
+  // Monday of week 1:
+  const mondayWeek1 = new Date(mondayRaceWeek);
+  const weeksBack = (durationWeeks ? (durationWeeks - 1) : 0);
+  mondayWeek1.setDate(mondayRaceWeek.getDate() - weeksBack * 7);
+
+  // Date for this session:
+  const d = new Date(mondayWeek1);
+  const weekOffsetDays = (session.week - 1) * 7;
+  const dayOffsetDays = (session.day - 1);
+  d.setDate(mondayWeek1.getDate() + weekOffsetDays + dayOffsetDays);
+
+  return d;
+}
+
+/* ---------- Session description (blocks) ---------- */
+/* If you already have sessionToText(session), we use it. Otherwise fallback. */
+function sessionToTextFallback(session) {
+  // Legacy v1:
+  if (typeof session.distance_km === "number") {
+    return `${session.distance_km} km`;
+  }
+  // v2 blocks (very simple fallback):
+  if (Array.isArray(session.blocks)) {
+    return session.blocks.map(b => {
+      if (b.kind === "run") {
+        if (typeof b.distance_km === "number") return `${b.distance_km} km${b.zone ? " " + b.zone : ""}`;
+        if (typeof b.duration_min === "number") return `${b.duration_min} min${b.zone ? " " + b.zone : ""}`;
+      }
+      if (b.kind === "repeat") {
+        const rep = b.repeat || 0;
+        return `${rep}×(interval)`;
+      }
+      if (b.kind === "rest") {
+        return `${b.duration_min || ""} min pause`.trim();
+      }
+      return "";
+    }).filter(Boolean).join(" + ");
+  }
+  return "";
+}
+
+function getSessionDescription(session) {
+  try {
+    if (typeof sessionToText === "function") {
+      const t = sessionToText(session);
+      if (t) return t;
+    }
+  } catch (e) {
+    // ignore and fallback
+  }
+  return sessionToTextFallback(session);
+}
+
+/* ============================================================
+   CSV
+============================================================ */
+function generateCSV(planData, raceDateStr) {
+  const durationWeeks = planData.duration_weeks || 0;
+  const header = ["Date", "Week", "Day", "Title", "Workout", "Note"];
+  const rows = [header.join(",")];
+
+  (planData.sessions || []).forEach(session => {
+    const date = getSessionDateFromRace(raceDateStr, session, durationWeeks);
+    const dateStr = date ? formatDateISO(date) : "";
+
+    const workout = getSessionDescription(session);
+    const note = session.note || "";
+
+    const row = [
+      dateStr,
+      session.week,
+      session.day,
+      escapeCSV(session.title || ""),
+      escapeCSV(workout),
+      escapeCSV(note)
+    ];
+
+    rows.push(row.join(","));
+  });
+
+  return rows.join("\n");
+}
+
+function downloadCSV() {
+  const raceDate = document.getElementById("raceDate")?.value;
+  if (!raceDate) {
+    alert("Vælg en konkurrencedato først.");
+    return;
+  }
+  if (!window.planData) {
+    alert("Vælg en træningsplan først.");
+    return;
+  }
+
+  const csv = generateCSV(window.planData, raceDate);
+
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `${window.planData.id || "training-plan"}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+
+  URL.revokeObjectURL(url);
+}
+
+/* ============================================================
+   iCAL / ICS
+============================================================ */
+function generateICS(planData, raceDateStr) {
+  const durationWeeks = planData.duration_weeks || 0;
+  const nowStamp = new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+
+  let ics =
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//LOEBEKLAR//Training Plan//DA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+`;
+
+  (planData.sessions || []).forEach((session, i) => {
+    const date = getSessionDateFromRace(raceDateStr, session, durationWeeks);
+    if (!date) return;
+
+    const dt = formatDateICS(date);
+    const title = session.title || "Træning";
+    const workout = getSessionDescription(session);
+    const note = session.note ? `\n\nNote: ${session.note}` : "";
+
+    const desc = `${workout}${note}`.trim();
+
+    // UID must be unique; include plan id + index + date
+    const uid = `${planData.id || "plan"}-${i}-${dt}@loebeklar`;
+
+    ics +=
+`BEGIN:VEVENT
+UID:${escapeICS(uid)}
+DTSTAMP:${nowStamp}
+DTSTART;VALUE=DATE:${dt}
+SUMMARY:${escapeICS(title)}
+DESCRIPTION:${escapeICS(desc)}
+END:VEVENT
+`;
+  });
+
+  ics += "END:VCALENDAR";
+  return ics;
+}
+
+function downloadICS() {
+  const raceDate = document.getElementById("raceDate")?.value;
+  if (!raceDate) {
+    alert("Vælg en konkurrencedato først.");
+    return;
+  }
+  if (!window.planData) {
+    alert("Vælg en træningsplan først.");
+    return;
+  }
+
+  const ics = generateICS(window.planData, raceDate);
+
+  const blob = new Blob([ics], { type: "text/calendar;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `${window.planData.id || "training-plan"}.ics`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+
+  URL.revokeObjectURL(url);
+}
