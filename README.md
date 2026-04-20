@@ -1,7 +1,7 @@
 🏃‍♂️ Training-Plan-Expert
 
 Et simpelt, gratis og letvægtigt webværktøj til at generere personlige træningsplaner frem mod en konkurrence.
-Brugeren vælger en træningsplan og en konkurrencedato, hvorefter værktøjet automatisk beregner alle træningsdatoer baglæns. Den færdige plan kan vises på skærmen, udskrives eller eksporteres til kalender og regneark.
+Brugeren vælger en predefineret træningsplan ud fra ønsket konkurrencemål, samt en konkurrencedato, hvorefter værktøjet automatisk beregner alle træningsdatoer baglæns. Den færdige plan kan vises på skærmen, udskrives eller eksporteres til kalender og regneark.
 Projektet er designet til at være:
 
 - begyndervenligt
