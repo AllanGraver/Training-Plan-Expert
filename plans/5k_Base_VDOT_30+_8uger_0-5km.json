@@ -1,0 +1,40 @@
+{
+  "id": "5k_Base_VDOT_30+_8uger_0-5km",
+  "name": "5km – Base (VDOT 30+) 0-5km (8 uger - 3x træning)",
+  "race_distance_km": 5,
+  "duration_weeks": 8,
+
+  "sessions": [
+    { "week": 1, "day": 1, "title": "Gåtur - 20 min", "distance_min": 20, "Gåtur på 20 min, gerne med lidt tempo": "20 min" },
+    { "week": 1, "day": 3, "title": "Interval løb - 30 min", "distance_min": 30, "5 min opvarmningsgang, 20 min med skiftevis 1 min løb @ E og 1 min gang, 5 min nedvarmningsgang": "30 min" },
+    { "week": 1, "day": 6, "title": "Interval løb - 35 min", "distance_min": 35, "5 min opvarmningsgang, 25 min med skiftevis 1 min løb @ E og 1 min gang, 5 min nedvarmningsgang": "35 min" },
+
+    { "week": 2, "day": 1, "title": "Gåtur - 25 min", "distance_min": 25, "Gåtur på 25 min, gerne med lidt tempo": "25 min" },
+    { "week": 2, "day": 3, "title": "Interval løb - 32 min", "distance_min": 32, "5 min opvarmningsgang, 22 min med skiftevis 2 min løb @ E og 1 min gang, 5 min nedvarmningsgang": "32 min" },
+    { "week": 2, "day": 6, "title": "Interval løb - 38 min", "distance_min": 38, "5 min opvarmningsgang, 28 min med skiftevis 2 min løb @ E og 1 min gang, 5 min nedvarmningsgang": "38 min" },
+
+    { "week": 3, "day": 1, "title": "Gåtur - 25 min", "distance_min": 25, "Gåtur på 25 min, gerne med lidt tempo": "25 min" },
+    { "week": 3, "day": 3, "title": "Interval løb - 35 min", "distance_min": 35, "5 min opvarmningsgang, 25 min med skiftevis 3 min løb @ E og 1 min gang, 5 min nedvarmningsgang": "35 min" },
+    { "week": 3, "day": 6, "title": "Interval løb - 40 min", "distance_min": 40, "5 min opvarmningsgang, 30 min med skiftevis 3 min løb @ E og 1 min gang, 5 min nedvarmningsgang": "40 min" },
+
+    { "week": 4, "day": 1, "title": "Gåtur - 30 min", "distance_min": 30, "Gåtur på 30 min, gerne med lidt tempo": "30 min" },
+    { "week": 4, "day": 3, "title": "Interval løb - 38 min", "distance_min": 38, "5 min opvarmningsgang, 28 min med skiftevis 5 min løb @ E og 1 min gang, 5 min nedvarmningsgang": "38 min" },
+    { "week": 4, "day": 6, "title": "Interval løb - 42 min", "distance_min": 42, "5 min opvarmningsgang, 32 min med skiftevis 5 min løb @ E og 1 min gang, 5 min nedvarmningsgang": "42 min" },
+
+    { "week": 5, "day": 1, "title": "Gåtur - 30 min", "distance_min": 30, "Gåtur på 30 min, gerne med lidt tempo": "30 min" },
+    { "week": 5, "day": 3, "title": "Interval løb - 40 min", "distance_min": 40, "5 min opvarmningsgang, 30 min med skiftevis 8 min løb @ E og 1 min gang, 5 min nedvarmningsgang": "40 min" },
+    { "week": 5, "day": 6, "title": "Interval løb - 45 min", "distance_min": 45, "5 min opvarmningsgang, 35 min med skiftevis 8 min løb @ E og 1 min gang, 5 min nedvarmningsgang": "45 min" },
+
+    { "week": 6, "day": 1, "title": "Gåtur - 30 min", "distance_min": 30, "Gåtur på 30 min, gerne med lidt tempo": "30 min" },
+    { "week": 6, "day": 3, "title": "Interval løb - 40 min", "distance_min": 40, "5 min opvarmningsgang, 30 min med skiftevis 12 min løb @ E og 1 min gang, 5 min nedvarmningsgang": "40 min" },
+    { "week": 6, "day": 6, "title": "Interval løb - 48 min", "distance_min": 48, "5 min opvarmningsgang, 38 min med skiftevis 12 min løb @ E og 1 min gang, 5 min nedvarmningsgang": "48 min" },
+
+    { "week": 7, "day": 1, "title": "Gåtur - 30 min", "distance_min": 30, "Gåtur på 30 min, gerne med lidt tempo": "30 min" },
+    { "week": 7, "day": 3, "title": "Rolig løb - 30 min", "distance_min": 30, "5 min opvarmningsgang, 20 min med sammenhængende løb @ E, 5 min nedvarmningsgang": "30 min" },
+    { "week": 7, "day": 6, "title": "Rolig løb - 45 min", "distance_min": 45, "5 min opvarmningsgang, 35 min med primært løb @ E dog lidt gang er tilladt, 5 min nedvarmningsgang": "45 min" },
+
+    { "week": 8, "day": 1, "title": "Gåtur - 20 min", "distance_min": 20, "Gåtur på 20 min, gerne med lidt tempo": "20 min" },
+    { "week": 8, "day": 3, "title": "Interval løb - 21 min", "distance_min": 21, "5 min opvarmningsgang, 10 min med roligt løb @ E + 4 korte spurter @ R (15 sek), 5 min nedvarmningsgang": "21 min" },
+    { "week": 8, "day": 6, "title": "Konkurrence løb - 5 km", "distance_km": 5, "Nyd hvert skridt - Det handler ikke om tid, men om følelsen af at bevæge sig og komme i mål.": "5 km" }
+  ]
+}
