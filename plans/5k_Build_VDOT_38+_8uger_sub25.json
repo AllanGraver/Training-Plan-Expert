@@ -5,8 +5,7 @@
   "duration_weeks": 8,
   
   "sessions": [
-    {
-      "week": 1, "day": 1, "title": "Easy run - 35 min", "distance_min": 35, "note": "6 km @ E i roligt tempo. Fokus på let base og restitution."},
+    { "week": 1, "day": 1, "title": "Easy run - 35 min", "distance_min": 35, "note": "6 km @ E i roligt tempo. Fokus på let base og restitution."},
     {
       "week": 1,
       "day": 3,
