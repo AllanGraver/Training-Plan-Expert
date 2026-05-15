@@ -3,6 +3,7 @@
   "name": "5km – Build (VDOT 38+) sub25 (8 uger - 3x træning)",
   "race_distance_km": 5,
   "duration_weeks": 8,
+  
   "sessions": [
     {
       "week": 1, "day": 1, "title": "Easy run - 35 min", "distance_min": 35, "note": "6 km @ E i roligt tempo. Fokus på let base og restitution."},
