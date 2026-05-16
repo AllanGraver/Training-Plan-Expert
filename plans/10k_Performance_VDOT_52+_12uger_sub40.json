@@ -1,0 +1,56 @@
+{
+  "id": "10k_Performance_VDOT_52+_12uger_sub40_deload",
+  "name": "10km – Performance (sub 40 min, VDOT 52+) (12 uger - 3x træning, deload)",
+  "race_distance_km": 10,
+  "duration_weeks": 12,
+  
+  "sessions": [
+    { "week": 1, "day": 1, "week_type": "build", "title": "Easy run + strides - 9.0 km", "distance_km": 9.0, "note": "9.0 km @ E efterfulgt af 4-6 strides. Fokus på let base og løbeøkonomi."},
+    { "week": 1, "day": 3, "week_type": "build", "title": "R-pas - 8.8 km", "distance_km": 8.8, "note": "2 km opvarmning @ E + 10 x 200 m @ R med 200 m jog mellem hver repetition + 2 km afjog."},
+    { "week": 1, "day": 6, "week_type": "build", "title": "Lang tur - 13.0 km", "distance_km": 13.0, "note": "13.0 km @ E i roligt tempo. Aerob base."},
+    
+    { "week": 2, "day": 1, "week_type": "build", "title": "Easy run + strides - 9.0 km", "distance_km": 9.0, "note": "9.0 km @ E efterfulgt af 4-6 strides. Stabil base og let restitution."},
+    { "week": 2, "day": 3, "week_type": "build", "title": "T-pas - 10.1 km", "distance_km": 10.1, "note": "2 km opvarmning @ E + 2 x 12 min @ T med 2-3 min let jog mellem intervaller + 2 km afjog."},
+    { "week": 2, "day": 6, "week_type": "build", "title": "Lang tur + T - 16.4 km", "distance_km": 16.4, "note": "14 km @ E + ca. 10 min @ T mod slutningen."},
+    
+    { "week": 3, "day": 1, "week_type": "build", "title": "Easy run + strides - 9.0 km", "distance_km": 9.0, "note": "9.0 km @ E efterfulgt af 4-6 strides. Volume uden at koste for meget."},
+    { "week": 3, "day": 3, "week_type": "build", "title": "I-pas - 10.8 km", "distance_km": 10.8, "note": "2 km opvarmning @ E + 5 x 1000 m @ I med 400 m jog mellem intervaller + 2 km afjog."},
+    { "week": 3, "day": 6, "week_type": "build", "title": "Lang tur + T - 18.0 km", "distance_km": 18.0, "note": "14 km @ E + 2 x 10 min @ T med 2 min let jog mellem blokkene."},
+    
+    { "week": 4, "day": 1, "week_type": "deload", "title": "Easy run + strides - 7.0 km", "distance_km": 7.0, "note": "Deload-uge. Kortere E-pas med 4 strides for at bevare løbeøkonomi, men reducere belastningen markant."},
+    { "week": 4, "day": 3, "week_type": "deload", "title": "T-pas - 8.8 km", "distance_km": 8.8, "note": "2 km opvarmning @ E + 2 x 10 min @ T med 2 min let jog mellem intervaller + 2 km afjog. Intensiteten holdes, volumen reduceres."},
+    { "week": 4, "day": 6, "week_type": "deload", "title": "Lang tur - 15.0 km", "distance_km": 15.0, "note": "Rolig deload-langtur @ E uden ekstra T-blok. Fokus på restitution og superkompensation."},
+    
+    { "week": 5, "day": 1, "week_type": "build", "title": "Easy run + strides - 9.0 km", "distance_km": 9.0, "note": "9.0 km @ E efterfulgt af strides. Let dag før ugens vigtigste pas."},
+    { "week": 5, "day": 3, "week_type": "build", "title": "I-pas - 12.0 km", "distance_km": 12.0, "note": "2 km opvarmning @ E + 6 x 1000 m @ I med 400 m jog mellem intervaller + 2 km afjog."},
+    { "week": 5, "day": 6, "week_type": "build", "title": "Lang tur + T - 20.3 km", "distance_km": 20.3, "note": "15-16 km @ E + 20 min @ T mod slutningen."},
+    
+    { "week": 6, "day": 1, "week_type": "build", "title": "Easy run + strides - 9.0 km", "distance_km": 9.0, "note": "9.0 km @ E efterfulgt af strides. Kontrolleret volumen."},
+    { "week": 6, "day": 3, "week_type": "build", "title": "10 km/T-nær pas - 13.8 km", "distance_km": 13.8, "note": "2-3 km opvarmning @ E + 4 x 1600 m i stærk 10 km / T-nær fart med 2-3 min jog mellem intervaller + 2 km afjog."},
+    { "week": 6, "day": 6, "week_type": "build", "title": "Lang tur + T - 22.2 km", "distance_km": 22.2, "note": "16 km @ E + 3 x 10 min @ T med 2 min let jog mellem blokkene."},
+    
+    { "week": 7, "day": 1, "week_type": "build", "title": "Easy run + strides - 9.0 km", "distance_km": 9.0, "note": "9.0 km @ E efterfulgt af strides. Rolig forberedelse mod næste blok."},
+    { "week": 7, "day": 3, "week_type": "build", "title": "I-pas - 12.0 km", "distance_km": 12.0, "note": "2 km opvarmning @ E + 6 x 1000 m @ I med 400 m jog mellem intervaller + 2 km afjog."},
+    { "week": 7, "day": 6, "week_type": "build", "title": "Lang tur + T - 20.3 km", "distance_km": 20.3, "note": "15-16 km @ E + 20 min @ T mod slutningen."},
+    
+    { "week": 8, "day": 1, "week_type": "deload", "title": "Easy run + strides - 7.0 km", "distance_km": 7.0, "note": "Deload-uge. Kortere E-pas med strides for at bevare følelsen i benene."},
+    { "week": 8, "day": 3, "week_type": "deload", "title": "I-pas - 8.8 km", "distance_km": 8.8, "note": "2 km opvarmning @ E + 4 x 800 m @ I med 400 m jog mellem intervaller + 2 km afjog. Intensiteten holdes, volumen sænkes markant."},
+    { "week": 8, "day": 6, "week_type": "deload", "title": "Lang tur + kort T - 16.0 km", "distance_km": 16.0, "note": "Ca. 15 km @ E + kort T-blok på ca. 8 min. Let nok til restitution, men stadig Daniels-tro kvalitet."},
+    
+    { "week": 9, "day": 1, "week_type": "race_prep", "title": "Easy run + strides - 9.0 km", "distance_km": 9.0, "note": "9.0 km @ E efterfulgt af strides. Sidste store udviklingsuge."},
+    { "week": 9, "day": 3, "week_type": "race_prep", "title": "I-pas - 12.2 km", "distance_km": 12.2, "note": "2-3 km opvarmning @ E + 5 x 1200 m @ I med 400 m jog mellem intervaller + 2 km afjog."},
+    { "week": 9, "day": 6, "week_type": "race_prep", "title": "Lang tur + T - 20.0 km", "distance_km": 20.0, "note": "15 km @ E + 15 min @ T mod slutningen."},
+    
+    { "week": 10, "day": 1, "week_type": "race_prep", "title": "Easy run + strides - 9.0 km", "distance_km": 9.0, "note": "9.0 km @ E efterfulgt af strides. Start på race-specifik fase."},
+    { "week": 10, "day": 3, "week_type": "race_prep", "title": "10 km-fart pas - 14.0 km", "distance_km": 14.0, "note": "2 km opvarmning @ E + 3 x 3 km i 10 km-fart med 3 min let jog mellem intervaller + 2 km afjog."},
+    { "week": 10, "day": 6, "week_type": "race_prep", "title": "Lang tur + 10 km-fart - 17.0 km", "distance_km": 17.0, "note": "12 km @ E + 5 km i 10 km-fart."},
+    
+    { "week": 11, "day": 1, "week_type": "race_prep", "title": "Easy run + strides - 8.0 km", "distance_km": 8.0, "note": "8.0 km @ E efterfulgt af strides. Skarphed uden unødig træthed."},
+    { "week": 11, "day": 3, "week_type": "race_prep", "title": "10 km-fart pas - 10.0 km", "distance_km": 10.0, "note": "2 km opvarmning @ E + 4 x 1 km i 10 km-fart med kort let jog mellem intervaller + 2 km afjog."},
+    { "week": 11, "day": 6, "week_type": "race_prep", "title": "E + 10 km-fart - 13.0 km", "distance_km": 13.0, "note": "10 km @ E + 3 km i 10 km-fart. Race-specifik skarphed."},
+    
+    { "week": 12, "day": 1, "week_type": "taper", "title": "Easy run + strides - 6.5 km", "distance_km": 6.5, "note": "6-7 km @ E efterfulgt af 4 korte strides. Taper og friskhed."},
+    { "week": 12, "day": 3, "week_type": "taper", "title": "T-pas - 8.5 km", "distance_km": 8.5, "note": "2 km opvarmning @ E + 2 x 8 min @ T med 2 min let jog mellem intervaller + 1-2 km afjog."},
+    { "week": 12, "day": 6, "week_type": "race", "title": "10 km race / test - 14.5 km", "distance_km": 14.5, "note": "Opvarmning + 10 km race/test + afjog giver samlet ca. 14.5 km."}
+  ]
+}
