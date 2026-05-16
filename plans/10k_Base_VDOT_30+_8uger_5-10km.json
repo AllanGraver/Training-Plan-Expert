@@ -1,0 +1,40 @@
+{
+  "id": "10k_Base_VDOT_30+_8uger_5-10km_deload",
+  "name": "10km – Base (5-10km, VDOT 30+) (8 uger - 3x træning, deload)",
+  "race_distance_km": 10,
+  "duration_weeks": 8,
+  
+"sessions": [
+    { "week": 1, "day": 1, "week_type": "build", "title": "Gåtur - 2.5 km", "distance_km": 2.5, "note": "Rolig gåtur på ca. 25-30 min. Fokus på vane, bevægelse og lav belastning."},
+    { "week": 1, "day": 3, "week_type": "build", "title": "Run/Walk 2:1 - 3.2 km", "distance_km": 3.2, "note": "Ca. 30 min samlet med skiftevis 2 min løb @ E og 1 min gang. Instruktørstyret og roligt tempo."},
+    { "week": 1, "day": 6, "week_type": "build", "title": "Run/Walk 2:1 - 4.3 km", "distance_km": 4.3, "note": "Ca. 40 min samlet med skiftevis 2 min løb @ E og 1 min gang. Rolig, kontrolleret langtur."},
+    
+    { "week": 2, "day": 1, "week_type": "build", "title": "Gåtur - 2.5 km", "distance_km": 2.5, "note": "Rolig gåtur på ca. 30 min. Aktiv restitution."},
+    { "week": 2, "day": 3, "week_type": "build", "title": "Run/Walk 3:1 - 3.6 km", "distance_km": 3.6, "note": "Ca. 32 min samlet med skiftevis 3 min løb @ E og 1 min gang. Hold tempoet let."},
+    { "week": 2, "day": 6, "week_type": "build", "title": "Run/Walk 3:1 - 5.1 km", "distance_km": 5.1, "note": "Ca. 45 min samlet med skiftevis 3 min løb @ E og 1 min gang. Længere roligt pas."},
+
+    { "week": 3, "day": 1, "week_type": "build", "title": "Gåtur - 2.9 km", "distance_km": 2.9, "note": "Rolig gåtur på ca. 30-35 min. Fokus på kontinuitet."},
+    { "week": 3, "day": 3, "week_type": "build", "title": "Run/Walk 4:1 - 4.2 km", "distance_km": 4.2, "note": "Ca. 36 min samlet med skiftevis 4 min løb @ E og 1 min gang."},
+    { "week": 3, "day": 6, "week_type": "build", "title": "Run/Walk 4:1 - 5.8 km", "distance_km": 5.8, "note": "Ca. 50 min samlet med skiftevis 4 min løb @ E og 1 min gang. Rolig progression mod 10 km."},
+
+    { "week": 4, "day": 1, "week_type": "deload", "title": "Gåtur - 2.5 km", "distance_km": 2.5, "note": "Deload-uge. Rolig gåtur på ca. 30 min for restitution og superkompensation."},
+    { "week": 4, "day": 3, "week_type": "deload", "title": "Run/Walk 4:1 - 3.8 km", "distance_km": 3.8, "note": "Kortere kvalitetspas: ca. 32 min samlet med skiftevis 4 min løb @ E og 1 min gang. Intensiteten holdes let og kontrolleret."},
+    { "week": 4, "day": 6, "week_type": "deload", "title": "Run/Walk 5:1 - 5.0 km", "distance_km": 5.0, "note": "Deload-lørdag. Kortere langtur med 5 min løb / 1 min gang. Fokus på restitution frem for progression."},
+
+    { "week": 5, "day": 1, "week_type": "build", "title": "Gåtur - 2.9 km", "distance_km": 2.9, "note": "Rolig gåtur på ca. 35 min. Hold rutinen uden at skabe træthed."},
+    { "week": 5, "day": 3, "week_type": "build", "title": "Run/Walk 8:1 - 5.6 km", "distance_km": 5.6, "note": "Ca. 45 min samlet med skiftevis 8 min løb @ E og 1 min gang."},
+    { "week": 5, "day": 6, "week_type": "build", "title": "Run/Walk 8:1 - 7.5 km", "distance_km": 7.5, "note": "Ca. 60 min samlet med skiftevis 8 min løb @ E og 1 min gang. Længere blokke af løb."},
+
+    { "week": 6, "day": 1, "week_type": "build", "title": "Gåtur - 3.3 km", "distance_km": 3.3, "note": "Rolig gåtur på ca. 35-40 min. Aktiv restitution."},
+    { "week": 6, "day": 3, "week_type": "build", "title": "Run/Walk 12:1 - 6.0 km", "distance_km": 6.0, "note": "Ca. 45 min samlet med skiftevis 12 min løb @ E og 1 min gang."},
+    { "week": 6, "day": 6, "week_type": "build", "title": "Run/Walk 12:1 - 8.4 km", "distance_km": 8.4, "note": "Ca. 65 min samlet med skiftevis 12 min løb @ E og 1 min gang. Næsten sammenhængende langtur."},
+
+    { "week": 7, "day": 1, "week_type": "deload", "title": "Gåtur - 2.1 km", "distance_km": 2.1, "note": "Let deload-gåtur på ca. 20-25 min. Friskgør kroppen før afsluttende uge."},
+    { "week": 7, "day": 3, "week_type": "deload", "title": "Sammenhængende løb - 4.8 km", "distance_km": 4.8, "note": "Kortere sammenhængende let løb @ E. Hold intensiteten let og teknikken god."},
+    { "week": 7, "day": 6, "week_type": "deload", "title": "Primært løb - 7.8 km", "distance_km": 7.8, "note": "Deload-langtur. Primært sammenhængende løb i roligt tempo, evt. én kort gåpause ved behov."},
+
+    { "week": 8, "day": 1, "week_type": "taper", "title": "Let gåtur - 2.1 km", "distance_km": 2.1, "note": "Let gåtur på ca. 20-25 min. Hold kroppen i gang uden at blive træt."},
+    { "week": 8, "day": 3, "week_type": "taper", "title": "Let løb + stigninger - 4.0 km", "distance_km": 4.0, "note": "Ca. 25 min let løb + 4 korte stigninger. Formålet er at vække benene før test/race."},
+    { "week": 8, "day": 6, "week_type": "race", "title": "10 km sammenhængende - 10.0 km", "distance_km": 10.0, "note": "10 km i roligt, jævnt tempo. Målet er at gennemføre sammenhængende uden fokus på fart."}
+  ]
+}
