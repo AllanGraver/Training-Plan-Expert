@@ -1,0 +1,297 @@
+{
+  "id": "marathon_Base_VDOT_30+_12uger_10-21km",
+  "name": "Marathon – Base (10-21km, VDOT 30+) (12 uger - 3x træning)",
+  "race_distance_km": 42.195,
+  "duration_weeks": 12,
+  
+"sessions": [
+    {
+      "week": 1,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 5.0 km",
+      "distance_km": 5.0,
+      "note": "Roligt E-pas. Fokus på kontinuitet og lav belastning."
+    },
+    {
+      "week": 1,
+      "day": 3,
+      "week_type": "build",
+      "title": "Easy run - 6.0 km",
+      "distance_km": 6.0,
+      "note": "Let sammenhængende løb @ E. Teknik og roligt tempo."
+    },
+    {
+      "week": 1,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Rolig langtur @ E. Målet er tid på benene frem for fart."
+    },
+    {
+      "week": 2,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 5.5 km",
+      "distance_km": 5.5,
+      "note": "Roligt E-pas. Hold intensiteten lav."
+    },
+    {
+      "week": 2,
+      "day": 3,
+      "week_type": "build",
+      "title": "Easy run + strides - 7.0 km",
+      "distance_km": 7.0,
+      "note": "Roligt E-pas afsluttet med 4 korte strides for let løbeøkonomi."
+    },
+    {
+      "week": 2,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur - 14.0 km",
+      "distance_km": 14.0,
+      "note": "Langtur @ E i jævnt tempo."
+    },
+    {
+      "week": 3,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 6.0 km",
+      "distance_km": 6.0,
+      "note": "Let E-pas med fokus på god restitution."
+    },
+    {
+      "week": 3,
+      "day": 3,
+      "week_type": "build",
+      "title": "Steady/Easy progression - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Roligt pas hvor sidste 2 km må løbes lidt friskere end E, men stadig kontrolleret."
+    },
+    {
+      "week": 3,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur - 16.0 km",
+      "distance_km": 16.0,
+      "note": "Langtur @ E. Fokus på at blive mere robust."
+    },
+    {
+      "week": 4,
+      "day": 1,
+      "week_type": "deload",
+      "title": "Easy run - 5.0 km",
+      "distance_km": 5.0,
+      "note": "Deload-uge. Kort E-pas for at reducere volumen 20-30%."
+    },
+    {
+      "week": 4,
+      "day": 3,
+      "week_type": "deload",
+      "title": "Easy run + strides - 6.0 km",
+      "distance_km": 6.0,
+      "note": "Kortere E-pas med 4 strides. Intensiteten holdes let."
+    },
+    {
+      "week": 4,
+      "day": 6,
+      "week_type": "deload",
+      "title": "Lang tur - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Kortere langtur @ E. Fokus på restitution og superkompensation."
+    },
+    {
+      "week": 5,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 6.0 km",
+      "distance_km": 6.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 5,
+      "day": 3,
+      "week_type": "build",
+      "title": "Marathon steady - 8.0 km",
+      "distance_km": 8.0,
+      "note": "E-pas hvor midterste del løbes som rolig marathon steady, men ikke i egentlig MP."
+    },
+    {
+      "week": 5,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur - 18.0 km",
+      "distance_km": 18.0,
+      "note": "Langtur @ E. Fortsat aerob opbygning."
+    },
+    {
+      "week": 6,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 6.5 km",
+      "distance_km": 6.5,
+      "note": "Let E-pas med fokus på at møde frisk op til lørdag."
+    },
+    {
+      "week": 6,
+      "day": 3,
+      "week_type": "build",
+      "title": "Easy run + strides - 9.0 km",
+      "distance_km": 9.0,
+      "note": "Roligt E-pas med 4 strides til slut."
+    },
+    {
+      "week": 6,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur - 20.0 km",
+      "distance_km": 20.0,
+      "note": "Langtur @ E. Vigtig milepæl mod marathon-robusthed."
+    },
+    {
+      "week": 7,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 7.0 km",
+      "distance_km": 7.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 7,
+      "day": 3,
+      "week_type": "build",
+      "title": "Steady/Easy progression - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Kontrolleret pas hvor de sidste 3 km må løbes lidt friskere end E."
+    },
+    {
+      "week": 7,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur - 22.0 km",
+      "distance_km": 22.0,
+      "note": "Langtur @ E. Fokus på rolig gennemførelse."
+    },
+    {
+      "week": 8,
+      "day": 1,
+      "week_type": "deload",
+      "title": "Easy run - 5.5 km",
+      "distance_km": 5.5,
+      "note": "Deload-uge. Kort og roligt E-pas."
+    },
+    {
+      "week": 8,
+      "day": 3,
+      "week_type": "deload",
+      "title": "Easy run + strides - 7.0 km",
+      "distance_km": 7.0,
+      "note": "Kortere E-pas med 4 strides. Let kvalitet bevares."
+    },
+    {
+      "week": 8,
+      "day": 6,
+      "week_type": "deload",
+      "title": "Lang tur - 16.0 km",
+      "distance_km": 16.0,
+      "note": "Kortere langtur @ E for at absorbere træningen."
+    },
+    {
+      "week": 9,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 7.0 km",
+      "distance_km": 7.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 9,
+      "day": 3,
+      "week_type": "build",
+      "title": "Steady run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Let steady pas med fokus på rytme og marathon-forberedelse."
+    },
+    {
+      "week": 9,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur - 24.0 km",
+      "distance_km": 24.0,
+      "note": "Langtur @ E. Hold jævnt tempo hele vejen."
+    },
+    {
+      "week": 10,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 7.5 km",
+      "distance_km": 7.5,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 10,
+      "day": 3,
+      "week_type": "build",
+      "title": "Steady run - 11.0 km",
+      "distance_km": 11.0,
+      "note": "E/steady blanding. Stadig under rigtig threshold-belastning."
+    },
+    {
+      "week": 10,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur - 26.0 km",
+      "distance_km": 26.0,
+      "note": "Langtur @ E. Hovedfokus er udholdenhed."
+    },
+    {
+      "week": 11,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 11,
+      "day": 3,
+      "week_type": "build",
+      "title": "Marathon steady - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Roligt marathon-specifikt pas uden at blive hårdt."
+    },
+    {
+      "week": 11,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur - 28.0 km",
+      "distance_km": 28.0,
+      "note": "Planens længste rolige langtur. Fokus på rolig energiøkonomi."
+    },
+    {
+      "week": 12,
+      "day": 1,
+      "week_type": "taper",
+      "title": "Easy run - 6.0 km",
+      "distance_km": 6.0,
+      "note": "Taper-uge. Kort E-pas."
+    },
+    {
+      "week": 12,
+      "day": 3,
+      "week_type": "taper",
+      "title": "Easy run + strides - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Let E-pas med 4 korte strides."
+    },
+    {
+      "week": 12,
+      "day": 6,
+      "week_type": "race",
+      "title": "Lang test / marathon simulation - 30.0 km",
+      "distance_km": 30.0,
+      "note": "Lang testtur eller kontrolleret marathon-simulation. Ikke all-out race. Denne baseplan er primært opbygning mod næste blok eller gennemførsel med konservativ pacing."
+    }
+  ]
+}
