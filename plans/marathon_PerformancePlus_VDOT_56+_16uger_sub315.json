@@ -1,0 +1,776 @@
+{
+  "id": "marathon_PerformancePlus_VDOT_56+_16uger_sub315",
+  "name": "Marathon – Performance+ (sub 3:15, VDOT 56+) (16 uger - 6x træning)",
+  "race_distance_km": 42.195,
+  "duration_weeks": 16,
+  "sessions": [
+    {
+      "week": 1,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run + strides - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Roligt E-pas med 6 strides."
+    },
+    {
+      "week": 1,
+      "day": 2,
+      "week_type": "build",
+      "title": "Easy run - 14.0 km",
+      "distance_km": 14.0,
+      "note": "Aerobt E-pas i roligt tempo."
+    },
+    {
+      "week": 1,
+      "day": 3,
+      "week_type": "build",
+      "title": "T-pas - 16.0 km",
+      "distance_km": 16.0,
+      "note": "3 km opvarmning @ E + 3 x 12 min @ T med 2 min jog + afjog."
+    },
+    {
+      "week": 1,
+      "day": 4,
+      "week_type": "build",
+      "title": "Recovery run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Meget roligt restitutionspas @ E."
+    },
+    {
+      "week": 1,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur - 24.0 km",
+      "distance_km": 24.0,
+      "note": "Langtur @ E."
+    },
+    {
+      "week": 1,
+      "day": 7,
+      "week_type": "build",
+      "title": "Recovery run - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Kort og let restitutionspas."
+    },
+    {
+      "week": 2,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run + strides - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Roligt E-pas med strides."
+    },
+    {
+      "week": 2,
+      "day": 2,
+      "week_type": "build",
+      "title": "Easy run - 14.0 km",
+      "distance_km": 14.0,
+      "note": "Aerobt E-pas."
+    },
+    {
+      "week": 2,
+      "day": 3,
+      "week_type": "build",
+      "title": "T-pas - 18.0 km",
+      "distance_km": 18.0,
+      "note": "3 km opvarmning @ E + 2 x 20 min @ T + afjog."
+    },
+    {
+      "week": 2,
+      "day": 4,
+      "week_type": "build",
+      "title": "Recovery run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Let restitutionspas."
+    },
+    {
+      "week": 2,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur + MP slut - 26.0 km",
+      "distance_km": 26.0,
+      "note": "20 km @ E + 6 km @ MP."
+    },
+    {
+      "week": 2,
+      "day": 7,
+      "week_type": "build",
+      "title": "Recovery run - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Kort og let restitutionspas."
+    },
+    {
+      "week": 3,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run + strides - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Roligt E-pas med strides."
+    },
+    {
+      "week": 3,
+      "day": 2,
+      "week_type": "build",
+      "title": "Easy run - 16.0 km",
+      "distance_km": 16.0,
+      "note": "Aerobt E-pas."
+    },
+    {
+      "week": 3,
+      "day": 3,
+      "week_type": "build",
+      "title": "I/T mix - 18.0 km",
+      "distance_km": 18.0,
+      "note": "3 km opvarmning @ E + 5 x 1000 m @ I med 400 m jog + 15 min @ T + afjog."
+    },
+    {
+      "week": 3,
+      "day": 4,
+      "week_type": "build",
+      "title": "Recovery run - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Roligt restitutionspas."
+    },
+    {
+      "week": 3,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur + MP blok - 28.0 km",
+      "distance_km": 28.0,
+      "note": "20 km @ E + 8 km @ MP."
+    },
+    {
+      "week": 3,
+      "day": 7,
+      "week_type": "build",
+      "title": "Recovery run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Let restitutionspas."
+    },
+    {
+      "week": 4,
+      "day": 1,
+      "week_type": "deload",
+      "title": "Easy run + strides - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Deload-uge. Kortere E-pas med strides."
+    },
+    {
+      "week": 4,
+      "day": 2,
+      "week_type": "deload",
+      "title": "Easy run - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Aerobt E-pas, reduceret volumen."
+    },
+    {
+      "week": 4,
+      "day": 3,
+      "week_type": "deload",
+      "title": "T-pas - 14.0 km",
+      "distance_km": 14.0,
+      "note": "3 km opvarmning @ E + 2 x 12 min @ T + afjog."
+    },
+    {
+      "week": 4,
+      "day": 4,
+      "week_type": "deload",
+      "title": "Recovery run - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Meget let restitutionspas."
+    },
+    {
+      "week": 4,
+      "day": 6,
+      "week_type": "deload",
+      "title": "Lang tur - 22.0 km",
+      "distance_km": 22.0,
+      "note": "Kortere langtur @ E."
+    },
+    {
+      "week": 4,
+      "day": 7,
+      "week_type": "deload",
+      "title": "Recovery run - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Let jog for restitution."
+    },
+    {
+      "week": 5,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run + strides - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Roligt E-pas med strides."
+    },
+    {
+      "week": 5,
+      "day": 2,
+      "week_type": "build",
+      "title": "Easy run - 16.0 km",
+      "distance_km": 16.0,
+      "note": "Aerobt E-pas."
+    },
+    {
+      "week": 5,
+      "day": 3,
+      "week_type": "build",
+      "title": "T-pas - 18.0 km",
+      "distance_km": 18.0,
+      "note": "3 km opvarmning @ E + 3 x 15 min @ T + afjog."
+    },
+    {
+      "week": 5,
+      "day": 4,
+      "week_type": "build",
+      "title": "Recovery run - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Let restitutionspas."
+    },
+    {
+      "week": 5,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur + MP blok - 30.0 km",
+      "distance_km": 30.0,
+      "note": "22 km @ E + 8 km @ MP."
+    },
+    {
+      "week": 5,
+      "day": 7,
+      "week_type": "build",
+      "title": "Recovery run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Roligt restitutionspas."
+    },
+    {
+      "week": 6,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run + strides - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 6,
+      "day": 2,
+      "week_type": "build",
+      "title": "Medium long run - 18.0 km",
+      "distance_km": 18.0,
+      "note": "Længere roligt E-pas for volumen."
+    },
+    {
+      "week": 6,
+      "day": 3,
+      "week_type": "build",
+      "title": "MP-pas - 18.0 km",
+      "distance_km": 18.0,
+      "note": "3 km opvarmning @ E + 12 km @ MP + afjog."
+    },
+    {
+      "week": 6,
+      "day": 4,
+      "week_type": "build",
+      "title": "Recovery run - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Meget roligt pas."
+    },
+    {
+      "week": 6,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur + MP blok - 32.0 km",
+      "distance_km": 32.0,
+      "note": "22 km @ E + 10 km @ MP."
+    },
+    {
+      "week": 6,
+      "day": 7,
+      "week_type": "build",
+      "title": "Recovery run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Let restitutionspas."
+    },
+    {
+      "week": 7,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run + strides - 14.0 km",
+      "distance_km": 14.0,
+      "note": "Roligt E-pas med strides."
+    },
+    {
+      "week": 7,
+      "day": 2,
+      "week_type": "build",
+      "title": "Medium long run - 18.0 km",
+      "distance_km": 18.0,
+      "note": "Roligt aerobt pas."
+    },
+    {
+      "week": 7,
+      "day": 3,
+      "week_type": "build",
+      "title": "I/T mix - 18.0 km",
+      "distance_km": 18.0,
+      "note": "3 km opvarmning @ E + 6 x 1000 m @ I + 20 min @ T + afjog."
+    },
+    {
+      "week": 7,
+      "day": 4,
+      "week_type": "build",
+      "title": "Recovery run - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Meget roligt pas."
+    },
+    {
+      "week": 7,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur + MP blok - 32.0 km",
+      "distance_km": 32.0,
+      "note": "20 km @ E + 12 km @ MP."
+    },
+    {
+      "week": 7,
+      "day": 7,
+      "week_type": "build",
+      "title": "Recovery run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Let restitutionspas."
+    },
+    {
+      "week": 8,
+      "day": 1,
+      "week_type": "deload",
+      "title": "Easy run + strides - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Deload. Kortere E-pas."
+    },
+    {
+      "week": 8,
+      "day": 2,
+      "week_type": "deload",
+      "title": "Easy run - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 8,
+      "day": 3,
+      "week_type": "deload",
+      "title": "I-pas - 14.0 km",
+      "distance_km": 14.0,
+      "note": "3 km opvarmning @ E + 4 x 1000 m @ I + afjog."
+    },
+    {
+      "week": 8,
+      "day": 4,
+      "week_type": "deload",
+      "title": "Recovery run - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Let restitutionspas."
+    },
+    {
+      "week": 8,
+      "day": 6,
+      "week_type": "deload",
+      "title": "Lang tur - 24.0 km",
+      "distance_km": 24.0,
+      "note": "Kortere langtur @ E."
+    },
+    {
+      "week": 8,
+      "day": 7,
+      "week_type": "deload",
+      "title": "Recovery run - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Let jog."
+    },
+    {
+      "week": 9,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run + strides - 14.0 km",
+      "distance_km": 14.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 9,
+      "day": 2,
+      "week_type": "build",
+      "title": "Medium long run - 18.0 km",
+      "distance_km": 18.0,
+      "note": "Aerobt E-pas."
+    },
+    {
+      "week": 9,
+      "day": 3,
+      "week_type": "build",
+      "title": "MP-pas - 20.0 km",
+      "distance_km": 20.0,
+      "note": "3 km opvarmning @ E + 14 km @ MP + afjog."
+    },
+    {
+      "week": 9,
+      "day": 4,
+      "week_type": "build",
+      "title": "Recovery run - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Let restitutionspas."
+    },
+    {
+      "week": 9,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur + MP blok - 34.0 km",
+      "distance_km": 34.0,
+      "note": "22 km @ E + 12 km @ MP."
+    },
+    {
+      "week": 9,
+      "day": 7,
+      "week_type": "build",
+      "title": "Recovery run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Roligt restitutionspas."
+    },
+    {
+      "week": 10,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run + strides - 14.0 km",
+      "distance_km": 14.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 10,
+      "day": 2,
+      "week_type": "build",
+      "title": "Medium long run - 18.0 km",
+      "distance_km": 18.0,
+      "note": "Aerobt E-pas."
+    },
+    {
+      "week": 10,
+      "day": 3,
+      "week_type": "build",
+      "title": "T/MP mix - 20.0 km",
+      "distance_km": 20.0,
+      "note": "3 km opvarmning @ E + 20 min @ T + 10 km @ MP + afjog."
+    },
+    {
+      "week": 10,
+      "day": 4,
+      "week_type": "build",
+      "title": "Recovery run - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Let restitutionspas."
+    },
+    {
+      "week": 10,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur + MP blok - 34.0 km",
+      "distance_km": 34.0,
+      "note": "20 km @ E + 14 km @ MP."
+    },
+    {
+      "week": 10,
+      "day": 7,
+      "week_type": "build",
+      "title": "Recovery run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Roligt pas."
+    },
+    {
+      "week": 11,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run + strides - 14.0 km",
+      "distance_km": 14.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 11,
+      "day": 2,
+      "week_type": "build",
+      "title": "Medium long run - 18.0 km",
+      "distance_km": 18.0,
+      "note": "Aerobt E-pas."
+    },
+    {
+      "week": 11,
+      "day": 3,
+      "week_type": "build",
+      "title": "MP-pas - 22.0 km",
+      "distance_km": 22.0,
+      "note": "3 km opvarmning @ E + 16 km @ MP + afjog."
+    },
+    {
+      "week": 11,
+      "day": 4,
+      "week_type": "build",
+      "title": "Recovery run - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Let restitutionspas."
+    },
+    {
+      "week": 11,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur + MP blok - 36.0 km",
+      "distance_km": 36.0,
+      "note": "24 km @ E + 12 km @ MP. Peak-long run."
+    },
+    {
+      "week": 11,
+      "day": 7,
+      "week_type": "build",
+      "title": "Recovery run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Roligt pas."
+    },
+    {
+      "week": 12,
+      "day": 1,
+      "week_type": "deload",
+      "title": "Easy run + strides - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Deload-uge. Kortere E-pas."
+    },
+    {
+      "week": 12,
+      "day": 2,
+      "week_type": "deload",
+      "title": "Easy run - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 12,
+      "day": 3,
+      "week_type": "deload",
+      "title": "T-pas - 14.0 km",
+      "distance_km": 14.0,
+      "note": "3 km opvarmning @ E + 2 x 12 min @ T + afjog."
+    },
+    {
+      "week": 12,
+      "day": 4,
+      "week_type": "deload",
+      "title": "Recovery run - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Meget let pas."
+    },
+    {
+      "week": 12,
+      "day": 6,
+      "week_type": "deload",
+      "title": "Lang tur - 24.0 km",
+      "distance_km": 24.0,
+      "note": "Kortere langtur @ E."
+    },
+    {
+      "week": 12,
+      "day": 7,
+      "week_type": "deload",
+      "title": "Recovery run - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Let jog."
+    },
+    {
+      "week": 13,
+      "day": 1,
+      "week_type": "race_prep",
+      "title": "Easy run + strides - 14.0 km",
+      "distance_km": 14.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 13,
+      "day": 2,
+      "week_type": "race_prep",
+      "title": "Medium long run - 16.0 km",
+      "distance_km": 16.0,
+      "note": "Roligt aerobt pas."
+    },
+    {
+      "week": 13,
+      "day": 3,
+      "week_type": "race_prep",
+      "title": "MP-pas - 20.0 km",
+      "distance_km": 20.0,
+      "note": "3 km opvarmning @ E + 14 km @ MP + afjog."
+    },
+    {
+      "week": 13,
+      "day": 4,
+      "week_type": "race_prep",
+      "title": "Recovery run - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Let restitutionspas."
+    },
+    {
+      "week": 13,
+      "day": 6,
+      "week_type": "race_prep",
+      "title": "Lang tur + MP blok - 32.0 km",
+      "distance_km": 32.0,
+      "note": "20 km @ E + 12 km @ MP."
+    },
+    {
+      "week": 13,
+      "day": 7,
+      "week_type": "race_prep",
+      "title": "Recovery run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Roligt pas."
+    },
+    {
+      "week": 14,
+      "day": 1,
+      "week_type": "race_prep",
+      "title": "Easy run + strides - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 14,
+      "day": 2,
+      "week_type": "race_prep",
+      "title": "Medium long run - 16.0 km",
+      "distance_km": 16.0,
+      "note": "Aerobt E-pas."
+    },
+    {
+      "week": 14,
+      "day": 3,
+      "week_type": "race_prep",
+      "title": "10 km/MP mix - 18.0 km",
+      "distance_km": 18.0,
+      "note": "3 km opvarmning @ E + 3 x 3 km hurtigere end MP/omkring halvmaratonbelastning med kontrolleret pause + afjog."
+    },
+    {
+      "week": 14,
+      "day": 4,
+      "week_type": "race_prep",
+      "title": "Recovery run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Let restitutionspas."
+    },
+    {
+      "week": 14,
+      "day": 6,
+      "week_type": "race_prep",
+      "title": "Lang tur + MP blok - 28.0 km",
+      "distance_km": 28.0,
+      "note": "20 km @ E + 8 km @ MP."
+    },
+    {
+      "week": 14,
+      "day": 7,
+      "week_type": "race_prep",
+      "title": "Recovery run - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Let jog."
+    },
+    {
+      "week": 15,
+      "day": 1,
+      "week_type": "taper",
+      "title": "Easy run + strides - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Taper. Kort E-pas med strides."
+    },
+    {
+      "week": 15,
+      "day": 2,
+      "week_type": "taper",
+      "title": "Easy run - 12.0 km",
+      "distance_km": 12.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 15,
+      "day": 3,
+      "week_type": "taper",
+      "title": "MP-pas - 14.0 km",
+      "distance_km": 14.0,
+      "note": "3 km opvarmning @ E + 8 km @ MP + afjog."
+    },
+    {
+      "week": 15,
+      "day": 4,
+      "week_type": "taper",
+      "title": "Recovery run - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Meget let pas."
+    },
+    {
+      "week": 15,
+      "day": 6,
+      "week_type": "taper",
+      "title": "Easy long run - 22.0 km",
+      "distance_km": 22.0,
+      "note": "Rolig langtur uden ekstra kvalitet."
+    },
+    {
+      "week": 15,
+      "day": 7,
+      "week_type": "taper",
+      "title": "Recovery run - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Let jog."
+    },
+    {
+      "week": 16,
+      "day": 1,
+      "week_type": "taper",
+      "title": "Easy run + strides - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Kort E-pas med få strides."
+    },
+    {
+      "week": 16,
+      "day": 2,
+      "week_type": "taper",
+      "title": "Easy run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 16,
+      "day": 3,
+      "week_type": "taper",
+      "title": "Easy run - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Let pas @ E. Fokus på friskhed."
+    },
+    {
+      "week": 16,
+      "day": 4,
+      "week_type": "taper",
+      "title": "Recovery run - 6.0 km",
+      "distance_km": 6.0,
+      "note": "Meget let pas eller fri hvis træthed mærkes."
+    },
+    {
+      "week": 16,
+      "day": 6,
+      "week_type": "taper",
+      "title": "Marathon race / test - 42.195 km",
+      "distance_km": 42.195,
+      "note": "Marathon i planlagt race pace."
+    },
+    {
+      "week": 16,
+      "day": 7,
+      "week_type": "taper",
+      "title": "Recovery walk/jog - 5.0 km",
+      "distance_km": 5.0,
+      "note": "Meget let restitution hvis race er gennemført tidligere på dagen/ugen; ellers kan dette pas udelades. Medtaget for at bevare 6-dages struktur i filen."
+    }
+  ]
+}
