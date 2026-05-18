@@ -1,0 +1,344 @@
+{
+  "id": "marathon_Build_VDOT_42+_14uger_sub400",
+  "name": "Marathon – Build (sub 4:00, VDOT 42+) (14 uger - 3x træning)",
+  "race_distance_km": 42.195,
+  "duration_weeks": 14,
+  "sessions": [
+    {
+      "week": 1,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Roligt E-pas. Fokus på aerob base og restitution."
+    },
+    {
+      "week": 1,
+      "day": 3,
+      "week_type": "build",
+      "title": "T-pas - 10.0 km",
+      "distance_km": 10.0,
+      "note": "2 km opvarmning @ E + 2 x 10 min @ T med 2 min let jog mellem intervaller + afjog."
+    },
+    {
+      "week": 1,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur - 16.0 km",
+      "distance_km": 16.0,
+      "note": "Langtur @ E i roligt tempo."
+    },
+    {
+      "week": 2,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 2,
+      "day": 3,
+      "week_type": "build",
+      "title": "T-pas - 11.0 km",
+      "distance_km": 11.0,
+      "note": "2 km opvarmning @ E + 3 x 8 min @ T med 2 min let jog + afjog."
+    },
+    {
+      "week": 2,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur - 18.0 km",
+      "distance_km": 18.0,
+      "note": "Langtur @ E med jævn rytme."
+    },
+    {
+      "week": 3,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 9.0 km",
+      "distance_km": 9.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 3,
+      "day": 3,
+      "week_type": "build",
+      "title": "T-pas - 12.0 km",
+      "distance_km": 12.0,
+      "note": "2 km opvarmning @ E + 3 x 10 min @ T + afjog."
+    },
+    {
+      "week": 3,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur + MP slut - 20.0 km",
+      "distance_km": 20.0,
+      "note": "16 km @ E + sidste 4 km i MP. Første tydelige marathon pace-eksponering."
+    },
+    {
+      "week": 4,
+      "day": 1,
+      "week_type": "deload",
+      "title": "Easy run - 7.0 km",
+      "distance_km": 7.0,
+      "note": "Deload-uge. Kortere E-pas for 20-30% reduktion i volumen."
+    },
+    {
+      "week": 4,
+      "day": 3,
+      "week_type": "deload",
+      "title": "T-pas - 8.0 km",
+      "distance_km": 8.0,
+      "note": "2 km opvarmning @ E + 15 min @ T + kort afjog. Intensiteten holdes ved lige."
+    },
+    {
+      "week": 4,
+      "day": 6,
+      "week_type": "deload",
+      "title": "Lang tur - 15.0 km",
+      "distance_km": 15.0,
+      "note": "Kortere langtur @ E. Fokus på restitution."
+    },
+    {
+      "week": 5,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 9.0 km",
+      "distance_km": 9.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 5,
+      "day": 3,
+      "week_type": "build",
+      "title": "T-pas - 12.0 km",
+      "distance_km": 12.0,
+      "note": "2 km opvarmning @ E + 2 x 15 min @ T med 2 min jog + afjog."
+    },
+    {
+      "week": 5,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur - 22.0 km",
+      "distance_km": 22.0,
+      "note": "Langtur @ E. Fokus på varighed og rolig energiøkonomi."
+    },
+    {
+      "week": 6,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 9.0 km",
+      "distance_km": 9.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 6,
+      "day": 3,
+      "week_type": "build",
+      "title": "T/MP mix - 13.0 km",
+      "distance_km": 13.0,
+      "note": "2 km opvarmning @ E + 20 min @ T + 10 min @ MP + afjog."
+    },
+    {
+      "week": 6,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur + MP blok - 24.0 km",
+      "distance_km": 24.0,
+      "note": "18 km @ E + 6 km @ MP."
+    },
+    {
+      "week": 7,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 7,
+      "day": 3,
+      "week_type": "build",
+      "title": "T-pas - 14.0 km",
+      "distance_km": 14.0,
+      "note": "2 km opvarmning @ E + 3 x 15 min @ T med 2 min jog + afjog."
+    },
+    {
+      "week": 7,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur + MP blok - 26.0 km",
+      "distance_km": 26.0,
+      "note": "20 km @ E + 6 km @ MP."
+    },
+    {
+      "week": 8,
+      "day": 1,
+      "week_type": "deload",
+      "title": "Easy run - 7.0 km",
+      "distance_km": 7.0,
+      "note": "Deload-uge. Kortere E-pas."
+    },
+    {
+      "week": 8,
+      "day": 3,
+      "week_type": "deload",
+      "title": "T-pas - 9.0 km",
+      "distance_km": 9.0,
+      "note": "2 km opvarmning @ E + 2 x 10 min @ T + kort afjog."
+    },
+    {
+      "week": 8,
+      "day": 6,
+      "week_type": "deload",
+      "title": "Lang tur - 18.0 km",
+      "distance_km": 18.0,
+      "note": "Kortere langtur @ E uden MP-blok."
+    },
+    {
+      "week": 9,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 9,
+      "day": 3,
+      "week_type": "build",
+      "title": "MP-pas - 14.0 km",
+      "distance_km": 14.0,
+      "note": "2 km opvarmning @ E + 2 x 20 min @ MP med 5 min E mellem blokke + afjog."
+    },
+    {
+      "week": 9,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur + MP blok - 28.0 km",
+      "distance_km": 28.0,
+      "note": "20 km @ E + 8 km @ MP."
+    },
+    {
+      "week": 10,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 10,
+      "day": 3,
+      "week_type": "build",
+      "title": "MP-pas - 15.0 km",
+      "distance_km": 15.0,
+      "note": "2 km opvarmning @ E + 10 km sammenhængende @ MP + afjog."
+    },
+    {
+      "week": 10,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur + MP blok - 30.0 km",
+      "distance_km": 30.0,
+      "note": "22 km @ E + 8 km @ MP."
+    },
+    {
+      "week": 11,
+      "day": 1,
+      "week_type": "build",
+      "title": "Easy run - 10.0 km",
+      "distance_km": 10.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 11,
+      "day": 3,
+      "week_type": "build",
+      "title": "T/MP mix - 14.0 km",
+      "distance_km": 14.0,
+      "note": "2 km opvarmning @ E + 15 min @ T + 25 min @ MP + afjog."
+    },
+    {
+      "week": 11,
+      "day": 6,
+      "week_type": "build",
+      "title": "Lang tur + MP blok - 32.0 km",
+      "distance_km": 32.0,
+      "note": "24 km @ E + 8 km @ MP. Planens længste specifikke langtur."
+    },
+    {
+      "week": 12,
+      "day": 1,
+      "week_type": "deload",
+      "title": "Easy run - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Deload-uge. Kortere E-pas for at absorbere de store uger."
+    },
+    {
+      "week": 12,
+      "day": 3,
+      "week_type": "deload",
+      "title": "MP-pas - 10.0 km",
+      "distance_km": 10.0,
+      "note": "2 km opvarmning @ E + 20 min @ MP + afjog."
+    },
+    {
+      "week": 12,
+      "day": 6,
+      "week_type": "deload",
+      "title": "Lang tur - 22.0 km",
+      "distance_km": 22.0,
+      "note": "Kortere langtur @ E. Ingen lang MP-blok."
+    },
+    {
+      "week": 13,
+      "day": 1,
+      "week_type": "race_prep",
+      "title": "Easy run - 9.0 km",
+      "distance_km": 9.0,
+      "note": "Roligt E-pas."
+    },
+    {
+      "week": 13,
+      "day": 3,
+      "week_type": "race_prep",
+      "title": "MP-pas - 14.0 km",
+      "distance_km": 14.0,
+      "note": "2 km opvarmning @ E + 8 km @ MP + afjog."
+    },
+    {
+      "week": 13,
+      "day": 6,
+      "week_type": "race_prep",
+      "title": "Lang tur + MP blok - 30.0 km",
+      "distance_km": 30.0,
+      "note": "22 km @ E + 8 km @ MP. Sidste store marathon-specifikke pas."
+    },
+    {
+      "week": 14,
+      "day": 1,
+      "week_type": "taper",
+      "title": "Easy run - 7.0 km",
+      "distance_km": 7.0,
+      "note": "Taper-uge. Kort E-pas."
+    },
+    {
+      "week": 14,
+      "day": 3,
+      "week_type": "taper",
+      "title": "MP-pas - 10.0 km",
+      "distance_km": 10.0,
+      "note": "2 km opvarmning @ E + 5 km @ MP + afjog. Hold benene skarpe uden at skabe træthed."
+    },
+    {
+      "week": 14,
+      "day": 6,
+      "week_type": "race",
+      "title": "Marathon race / test - 42.195 km",
+      "distance_km": 42.195,
+      "note": "Marathon løbes i planlagt race pace. Opvarmning holdes kort og konservativ."
+    }
+  ]
+}
