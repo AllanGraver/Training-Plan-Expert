@@ -1,7 +1,8 @@
 {
   "plans": [
-    "marathon_Build_VDOT_42%2B_14uger_sub400.json",
-    "marathon_Base_VDOT_30%2B_12uger_10-21km.json",
+    "marathon_Performance_VDOT_50+_16uger_sub330.json",
+    "marathon_Build_VDOT_42+_14uger_sub400.json",
+    "marathon_Base_VDOT_30+_12uger_10-21km.json",
     "10k_Performance_VDOT_52+_12uger_sub40.json",
     "10k_Build_VDOT_36+_10uger_sub55.json",
     "10k_Base_VDOT_30+_8uger_5-10km.json",
