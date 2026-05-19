@@ -1,0 +1,296 @@
+{
+  "id": "5k_PerformancePlus_VDOT_50-55_12uger_sub20",
+  "name": "5km – Performance+ (sub 20 min, VDOT 50-55) (12 uger - 3x træning)",
+  "race_distance_km": 5,
+  "duration_weeks": 12,
+  "sessions": [
+    {
+      "week": 1,
+      "day": 1,
+      "week_type": "build",
+      "title": "Bakkesprinter - 6.5 km",
+      "distance_km": 6.5,
+      "note": "2.5 km opvarmning @ E + 10 x 120 m bakke med jog tilbage som pause + 2 km afjog. Fokus på R/neuromuskulær styrke og løbeøkonomi."
+    },
+    {
+      "week": 1,
+      "day": 3,
+      "week_type": "build",
+      "title": "T-pas - 10.0 km",
+      "distance_km": 10.0,
+      "note": "2.5 km opvarmning @ E + 5 km @ T (ca. 90 % af RP) + 2.5 km afjog. Kontrolleret threshold-pas."
+    },
+    {
+      "week": 1,
+      "day": 6,
+      "week_type": "build",
+      "title": "Moderat løb - 8.0 km",
+      "distance_km": 8.0,
+      "note": "35 min moderat løb @ E/steady (ca. 80-85 % af RP). Hold tempoet kontrolleret."
+    },
+    {
+      "week": 2,
+      "day": 1,
+      "week_type": "build",
+      "title": "I/R-pas - 8.0 km",
+      "distance_km": 8.0,
+      "note": "2 km opvarmning @ E + 4 x 400 m @ I med 1 min pause + 8 x 200 m @ R med 30 sek pause + 2 km afjog."
+    },
+    {
+      "week": 2,
+      "day": 3,
+      "week_type": "build",
+      "title": "Progressivt løb - 9.0 km",
+      "distance_km": 9.0,
+      "note": "45 min progressivt løb fra E mod T (ca. 80-90 % af RP)."
+    },
+    {
+      "week": 2,
+      "day": 6,
+      "week_type": "build",
+      "title": "E + RP-indsatser - 10.0 km",
+      "distance_km": 10.0,
+      "note": "50 min let løb @ E inkl. 10 x 1 min @ RP med 1 min jog mellem. Race-specifik rytme uden høj samlet belastning."
+    },
+    {
+      "week": 3,
+      "day": 1,
+      "week_type": "build",
+      "title": "Bakkesprinter - 6.8 km",
+      "distance_km": 6.8,
+      "note": "2.5 km opvarmning @ E + 12 x 120 m bakke med jog tilbage + 2 km afjog."
+    },
+    {
+      "week": 3,
+      "day": 3,
+      "week_type": "build",
+      "title": "Moderat/progressivt løb - 9.0 km",
+      "distance_km": 9.0,
+      "note": "45 min moderat løb fra E mod steady/T-light (ca. 80-90 % af RP)."
+    },
+    {
+      "week": 3,
+      "day": 6,
+      "week_type": "build",
+      "title": "Moderat løb - 8.0 km",
+      "distance_km": 8.0,
+      "note": "40 min moderat løb @ E/steady (ca. 80-85 % af RP)."
+    },
+    {
+      "week": 4,
+      "day": 1,
+      "week_type": "deload",
+      "title": "I-pas - 7.2 km",
+      "distance_km": 7.2,
+      "note": "2 km opvarmning @ E + 8 x 400 m @ I med 90 sek pause + 1.5 km afjog. Deload-uge: intensitet bevares, volumen sænkes."
+    },
+    {
+      "week": 4,
+      "day": 3,
+      "week_type": "deload",
+      "title": "T-pas - 8.5 km",
+      "distance_km": 8.5,
+      "note": "2 km opvarmning @ E + 5 km @ T (ca. 90 % af RP) + 1.5 km afjog. Kortere end normal belastning."
+    },
+    {
+      "week": 4,
+      "day": 6,
+      "week_type": "deload",
+      "title": "Fartleg - 8.0 km",
+      "distance_km": 8.0,
+      "note": "40 min fartleg med korte ryk á 1-3 min omkring I-følelse. Deload med bevaret fartstimulering."
+    },
+    {
+      "week": 5,
+      "day": 1,
+      "week_type": "build",
+      "title": "I-pas - 10.0 km",
+      "distance_km": 10.0,
+      "note": "2 km opvarmning @ E + 6 x 800 m @ I med 2 min pause + 2 km afjog."
+    },
+    {
+      "week": 5,
+      "day": 3,
+      "week_type": "build",
+      "title": "Progressivt løb - 9.0 km",
+      "distance_km": 9.0,
+      "note": "45 min progressivt løb fra E mod T (ca. 85-95 % af RP)."
+    },
+    {
+      "week": 5,
+      "day": 6,
+      "week_type": "build",
+      "title": "E + RP-indsatser - 10.5 km",
+      "distance_km": 10.5,
+      "note": "50 min let løb @ E inkl. 10 x 90 sek @ RP med 1 min jog mellem."
+    },
+    {
+      "week": 6,
+      "day": 1,
+      "week_type": "build",
+      "title": "Bakkesprinter - 9.0 km",
+      "distance_km": 9.0,
+      "note": "2.5 km opvarmning @ E + 10 x 300 m bakke med jog tilbage + 2 km afjog. Styrke og løbeøkonomi."
+    },
+    {
+      "week": 6,
+      "day": 3,
+      "week_type": "build",
+      "title": "Moderat løb - 9.0 km",
+      "distance_km": 9.0,
+      "note": "45 min moderat løb @ E/steady (ca. 80-90 % af RP)."
+    },
+    {
+      "week": 6,
+      "day": 6,
+      "week_type": "build",
+      "title": "Moderat løb - 9.0 km",
+      "distance_km": 9.0,
+      "note": "45 min moderat løb @ E/steady (ca. 80-85 % af RP)."
+    },
+    {
+      "week": 7,
+      "day": 1,
+      "week_type": "build",
+      "title": "I-pas - 10.0 km",
+      "distance_km": 10.0,
+      "note": "2 km opvarmning @ E + 10 x 600 m @ I med kort jogpause + 2 km afjog."
+    },
+    {
+      "week": 7,
+      "day": 3,
+      "week_type": "build",
+      "title": "T-pas - 8.0 km",
+      "distance_km": 8.0,
+      "note": "2.5 km opvarmning @ E + 3 km @ T/10 km-fart light (ca. 95 % af RP) + 2.5 km afjog."
+    },
+    {
+      "week": 7,
+      "day": 6,
+      "week_type": "build",
+      "title": "Progressivt løb - 9.0 km",
+      "distance_km": 9.0,
+      "note": "45 min progressivt løb fra E mod T-light (ca. 80-90 % af RP)."
+    },
+    {
+      "week": 8,
+      "day": 1,
+      "week_type": "deload",
+      "title": "I-pas - 9.0 km",
+      "distance_km": 9.0,
+      "note": "2 km opvarmning @ E + 6 x 800 m @ I med 2 min pause + 2 km afjog. Deload-uge med reduceret intervalmængde."
+    },
+    {
+      "week": 8,
+      "day": 3,
+      "week_type": "deload",
+      "title": "RP-vekselløb - 10.0 km",
+      "distance_km": 10.0,
+      "note": "2 km opvarmning @ E + 4 x (1 km @ RP / 1 km @ E) + 1 km afjog. Race-specifik rytme uden maksimal belastning."
+    },
+    {
+      "week": 8,
+      "day": 6,
+      "week_type": "deload",
+      "title": "E + RP-indsatser - 11.0 km",
+      "distance_km": 11.0,
+      "note": "60 min let løb @ E inkl. 10 x 2 min @ RP med 1 min jog mellem. Trods fart holdes ugevolumen nede via øvrige pas."
+    },
+    {
+      "week": 9,
+      "day": 1,
+      "week_type": "race_prep",
+      "title": "RP-pas - 9.5 km",
+      "distance_km": 9.5,
+      "note": "2.5 km opvarmning @ E + 2000 m + 1500 m + 1000 m @ RP med 3 min pause + 1.5 km afjog."
+    },
+    {
+      "week": 9,
+      "day": 3,
+      "week_type": "race_prep",
+      "title": "T-pas - 11.0 km",
+      "distance_km": 11.0,
+      "note": "2.5 km opvarmning @ E + 6 km @ T (ca. 90-95 % af RP) + 2.5 km afjog."
+    },
+    {
+      "week": 9,
+      "day": 6,
+      "week_type": "race_prep",
+      "title": "Moderat løb - 9.0 km",
+      "distance_km": 9.0,
+      "note": "50 min moderat løb @ E/steady (ca. 80-85 % af RP)."
+    },
+    {
+      "week": 10,
+      "day": 1,
+      "week_type": "race_prep",
+      "title": "Bakkesprinter - 10.0 km",
+      "distance_km": 10.0,
+      "note": "2.5 km opvarmning @ E + 12 x 300 m bakke med jog tilbage + 2 km afjog."
+    },
+    {
+      "week": 10,
+      "day": 3,
+      "week_type": "race_prep",
+      "title": "Moderat løb - 9.0 km",
+      "distance_km": 9.0,
+      "note": "45 min moderat løb @ E/steady (ca. 80-90 % af RP)."
+    },
+    {
+      "week": 10,
+      "day": 6,
+      "week_type": "race_prep",
+      "title": "Fartleg - 9.0 km",
+      "distance_km": 9.0,
+      "note": "45 min fartleg med ryk á 1-3 min omkring I-følelse (ca. 105 % af RP)."
+    },
+    {
+      "week": 11,
+      "day": 1,
+      "week_type": "race_prep",
+      "title": "I-pas - 12.0 km",
+      "distance_km": 12.0,
+      "note": "2.5 km opvarmning @ E + 5 x 1200 m @ I (ca. 102.5 % af RP) med 2.5 min pause + 2 km afjog."
+    },
+    {
+      "week": 11,
+      "day": 3,
+      "week_type": "race_prep",
+      "title": "T-pas - 11.0 km",
+      "distance_km": 11.0,
+      "note": "2.5 km opvarmning @ E + 6 km @ T (ca. 95 % af RP) + 2.5 km afjog."
+    },
+    {
+      "week": 11,
+      "day": 6,
+      "week_type": "race_prep",
+      "title": "Moderat løb - 8.0 km",
+      "distance_km": 8.0,
+      "note": "40 min moderat løb @ E/steady (ca. 80-85 % af RP)."
+    },
+    {
+      "week": 12,
+      "day": 1,
+      "week_type": "taper",
+      "title": "RP-pas - 8.0 km",
+      "distance_km": 8.0,
+      "note": "2 km opvarmning @ E + 8 x 500 m @ RP med 2 min pause + 2 km afjog. Kort, skarpt og race-specifikt."
+    },
+    {
+      "week": 12,
+      "day": 3,
+      "week_type": "taper",
+      "title": "Let løb + strides - 7.0 km",
+      "distance_km": 7.0,
+      "note": "35 min let løb @ E inkl. 4-5 x 30 sek strides. Formålet er friskhed og spændstighed."
+    },
+    {
+      "week": 12,
+      "day": 6,
+      "week_type": "race",
+      "title": "5 km race / test - 8.0 km",
+      "distance_km": 8.0,
+      "note": "Opvarmning + 5 km motionsløb/race med mål om sub 20 min + kort afjog. Race pace styres efter VDOT 50-55."
+    }
+  ]
+}
